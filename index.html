@@ -81,20 +81,23 @@ p{margin:0 0 16px}
 
 /* duas metades: ao rolar, as metades se abrem para os lados de uma vez (transição rápida, sem parar no meio) e o texto ocupa o vão */
 .dm{position:relative;height:320vh;background:var(--gg)}
-.dm-in{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;--g:250px}
-/* duas camadas por metade: .dm-v anda com a rolagem (fluido, até sair da tela); .dm-m dá o salto inicial de abertura
-   numa transição rápida, para a fresta vertical nunca ficar parada na tela */
-.dm-v{position:absolute;top:50%;height:233px;will-change:transform}
+.dm-in{position:sticky;top:0;height:100vh;overflow:hidden;--g:250px;--h:233px}
+/* as metades vêm das laterais (.dm-v anda com a rolagem) e se encontram no centro;
+   o último trecho do encontro (.dm-m) é um salto rápido, para a fresta vertical nunca ficar parada na tela */
+.dm-v{position:absolute;top:50%;height:var(--h);will-change:transform}
 .dm-v.e{right:calc(50% - .6px);transform:translate3d(calc(-1 * var(--x,0px)),-50%,0)}
 .dm-v.d{left:50%;transform:translate3d(var(--x,0px),-50%,0)}
-.dm-m{display:block;height:100%;width:auto;transition:transform .55s cubic-bezier(.05,.75,.15,1)}
-.dm.on .dm-v.e .dm-m{transform:translateX(calc(-1 * var(--g)))}
-.dm.on .dm-v.d .dm-m{transform:translateX(var(--g))}
-.dm-t{position:relative;z-index:1;text-align:center;font-size:var(--t55);font-weight:300;letter-spacing:-.03em;line-height:1.06;opacity:0;transform:scale(.96);transition:opacity .4s ease,transform .7s cubic-bezier(.05,.75,.15,1);margin:0}
-.dm-t span{display:block;color:var(--ce)}
-.dm.on .dm-t{opacity:1;transform:none}
-@media(max-width:640px){.dm-in{--g:31vw}.dm-v{height:144px}.dm-t{font-size:30px}}
-@media(prefers-reduced-motion:reduce){.dm{height:auto}.dm-in{position:relative;height:70vh}}
+.dm-m{display:block;height:100%;width:auto;transition:transform .5s cubic-bezier(.6,0,.2,1)}
+.dm-v.e .dm-m{transform:translateX(calc(-1 * var(--g)))}
+.dm-v.d .dm-m{transform:translateX(var(--g))}
+.dm.on .dm-v .dm-m{transform:none}
+.dm-a,.dm-b{position:absolute;left:0;right:0;text-align:center;font-size:var(--t55);font-weight:300;letter-spacing:-.03em;line-height:1.06;margin:0;transition:opacity .45s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.dm-a{top:50%;transform:translateY(-50%)}
+.dm.on .dm-a{opacity:0;transform:translateY(calc(-50% - 21px))}
+.dm-b{top:calc(50% + var(--h) / 2 + 34px);color:var(--ce);opacity:0;transform:translateY(13px)}
+.dm.on .dm-b{opacity:1;transform:none;transition-delay:.2s}
+@media(max-width:640px){.dm-in{--g:31vw;--h:144px}.dm-a,.dm-b{font-size:30px}}
+@media(prefers-reduced-motion:reduce){.dm{height:auto}.dm-in{position:relative;height:80vh}}
 
 /* sinais */
 .sin{padding:clamp(64px,8vw,104px) 0;border-top:1px solid var(--rule)}
@@ -245,7 +248,8 @@ p{margin:0 0 16px}
 <section class="dm" id="duas-metades" aria-label="Duas metades, uma direção"><div class="dm-in">
 <div class="dm-v e"><svg class="dm-m" viewBox="25.118 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></div>
 <div class="dm-v d"><svg class="dm-m" viewBox="50 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H50Z" fill="#A88C5C"/></svg></div>
-<p class="dm-t">Duas metades, <span>uma&nbsp;direção.</span></p>
+<p class="dm-a">Duas metades,</p>
+<p class="dm-b">uma&nbsp;direção.</p>
 </div></section>
 
 <section class="sin" aria-labelledby="sin-t"><div class="w">
@@ -387,18 +391,19 @@ mb.onclick=function(){abre(true)};document.getElementById('pnx').onclick=functio
 pn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){abre(false)})});
 addEventListener('keydown',function(e){if(e.key==='Escape')abre(false)});
 document.querySelectorAll('.lm').forEach(function(b){b.onclick=function(){var m=document.getElementById(b.getAttribute('aria-controls')),v=b.getAttribute('aria-expanded')!=='true';m.classList.toggle('on',v);b.setAttribute('aria-expanded',v);b.textContent=v?'Ler menos':'Ler mais'}});
-// duas metades: 1) abre de uma vez ao entrar; 2) as metades seguem a rolagem até passar das laterais;
-// 3) no fim, a página desce sozinha para o bloco seguinte (uma vez por passagem, só rolando para baixo)
+// duas metades: as metades saem das laterais e seguem a rolagem até o centro; perto do encontro, fecham de uma vez
+// e aparece "uma direção."; no fim, a página desce sozinha para o bloco seguinte (uma vez por passagem, só descendo)
 (function(){var d=document.getElementById('duas-metades');if(!d)return;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('on');return}
 var inn=d.querySelector('.dm-in'),prox=d.nextElementSibling,ult=scrollY,foi=false,pend=false;
 var cl=function(v){return v<0?0:v>1?1:v},suave=function(t){return t*t*(3-2*t)};
 function quadro(){pend=false;var r=d.getBoundingClientRect(),tot=d.offsetHeight-innerHeight,p=cl(-r.top/tot),desce=scrollY>ult;ult=scrollY;
-d.classList.toggle('on',p>.08);
-var g=parseFloat(getComputedStyle(inn).getPropertyValue('--g'))||0;if(innerWidth<=640)g=innerWidth*.31;
-var fim=innerWidth/2-g+40;inn.style.setProperty('--x',(suave(cl((p-.12)/.6))*fim).toFixed(1)+'px');
-if(p>.78&&desce&&!foi&&prox){foi=true;prox.scrollIntoView({behavior:'smooth'})}if(p<.4)foi=false}
-addEventListener('scroll',function(){if(!pend){pend=true;requestAnimationFrame(quadro)}},{passive:true});quadro()})();
+var cs=getComputedStyle(inn),h=parseFloat(cs.getPropertyValue('--h'))||233,g=innerWidth<=640?innerWidth*.31:parseFloat(cs.getPropertyValue('--g'))||250;
+var meia=h*24.882/53.058,ini=Math.max(0,innerWidth/2-g-meia-21);
+inn.style.setProperty('--x',((1-suave(cl((p-.05)/.5)))*ini).toFixed(1)+'px');
+d.classList.toggle('on',p>.58);
+if(p>.86&&desce&&!foi&&prox){foi=true;prox.scrollIntoView({behavior:'smooth'})}if(p<.4)foi=false}
+addEventListener('scroll',function(){if(!pend){pend=true;requestAnimationFrame(quadro)}},{passive:true});addEventListener('resize',quadro);quadro()})();
 // Como trabalhamos: etapas em sequência (avança sozinho, pausa com o mouse em cima e quando sai da tela)
 (function(){
 var st=document.getElementById('metSt');if(!st)return;
