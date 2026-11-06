@@ -175,7 +175,11 @@ p{margin:0 0 16px}
 .sob .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,88px);align-items:center}
 .foto-ph{aspect-ratio:4/5;background:#cfc9c0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--tp);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
 .foto-ph svg{width:64px}
-.sob-f{margin:0}.sob-f img{width:100%;aspect-ratio:4/5;object-fit:cover}
+/* mesma aplicação do post de depoimento: foto, faixa taupe embaixo e a estrela na divisa */
+.sob-f{margin:0;position:relative;max-width:400px;background:#5b5751}.sob-f img{width:100%;aspect-ratio:1;object-fit:cover}
+.sob-b{display:block;height:55px;background:var(--tp)}
+.sob-st{position:absolute;left:21px;bottom:55px;width:34px;transform:translateY(50%)}
+.ico{display:inline-flex;align-items:center;gap:10px}.ico svg{width:21px;height:21px;flex:none}
 .sob .cargo{font-size:var(--t21);color:var(--tp);margin:10px 0 26px}
 .prov{border:1px dashed var(--cq);padding:18px 22px;color:var(--tp);font-size:16px;max-width:620px}
 .prov b{display:block;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--ce);margin-bottom:6px}
@@ -340,13 +344,13 @@ p{margin:0 0 16px}
 </div></section>
 
 <section class="sob" id="quem-conduz"><div class="w">
-<figure class="sob-f"><img src="img/sandra.jpg" alt="Sandra Lia Morassutti, fundadora da Prosperista" width="900" height="1125" loading="lazy"></figure>
+<figure class="sob-f"><img src="img/sandra.jpg" alt="Sandra Lia Morassutti, fundadora da Prosperista" width="400" height="400" loading="lazy"><span class="sob-b"></span><span class="sob-st">{{ESTRELA}}</span></figure>
 <div>
 <p class="k">Quem conduz</p>
 <h2>Sandra Lia Morassutti</h2>
 <p class="cargo">Fundadora da Prosperista</p>
 <div class="prov"><b>Conteúdo a receber</b>Apresentação da Sandra: formação, trajetória e o que a levou a criar a Prosperista, em 5 a 8&nbsp;linhas.</div>
-<p style="margin-top:26px"><a class="lk" href="{{LINKEDIN}}">Ver perfil no LinkedIn</a></p>
+<p style="margin-top:26px"><a class="lk ico" href="{{LINKEDIN}}">{{ICO:linkedin:champanhe-escuro}}Ver perfil no LinkedIn</a></p>
 </div>
 </div></section>
 
@@ -364,8 +368,8 @@ p{margin:0 0 16px}
 <div class="ft-g">
 <div><span class="logo">{{LOGO_NEG}}</span><p>Consultoria de estratégia e gestão para empresas que querem crescer com&nbsp;controle.</p></div>
 <div><h4>Serviços</h4><ul><li><a href="#governanca">Estrutura decisória</a></li><li><a href="#diagnostico">Clareza estratégica</a></li><li><a href="#crescimento">Crescimento desbloqueado</a></li><li><a href="#palestras">Palestras estratégicas</a></li></ul></div>
-<div><h4>Contato</h4><ul><li><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li><li><a href="{{WHATSAPP}}">WhatsApp</a></li><li><a href="#agendar">Agendar conversa</a></li></ul></div>
-<div><h4>Redes</h4><ul><li><a href="{{LINKEDIN}}">LinkedIn</a></li><li><a href="{{INSTAGRAM}}">Instagram</a></li></ul></div>
+<div><h4>Contato</h4><ul><li><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li><li><a href="#agendar">Agendar conversa</a></li></ul></div>
+<div><h4>Redes</h4><ul><li><a class="ico" href="{{LINKEDIN}}">{{ICO:linkedin:champanhe}}LinkedIn</a></li><li><a class="ico" href="{{INSTAGRAM}}">{{ICO:instagram:champanhe}}Instagram</a></li><li><a class="ico" href="{{WHATSAPP}}">{{ICO:whatsapp:champanhe}}WhatsApp</a></li></ul></div>
 </div>
 <div class="ft-b"><span>© 2026 Prosperista Consultoria · CNPJ a informar</span><span>Política de privacidade (em breve)</span></div>
 </div></footer>
