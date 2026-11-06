@@ -127,13 +127,17 @@ p{margin:0 0 16px}
 
 /* método */
 .met{padding:clamp(64px,8vw,110px) 0}
-.met .w{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(34px,6vw,89px);align-items:center}
-.met-l .k{margin-bottom:21px}
-.met-bn{position:relative;display:block;width:89px;aspect-ratio:49.764/53.058;margin-top:55px;pointer-events:none}
+.met .w{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(34px,6vw,89px);align-items:center}
+.met-l{order:2;border-left:1px solid var(--rule);padding-left:clamp(34px,5vw,55px)}
+.met-l h2{font-size:var(--t21);line-height:1.4}
+.met-l .k{margin-bottom:13px}
+.met{position:relative;overflow:hidden}
+.met .w{position:relative;z-index:1}
+.met-bn{position:absolute;right:-144px;top:50%;width:377px;aspect-ratio:49.764/53.058;transform:translateY(-50%);pointer-events:none;opacity:.22}
 .met-bn svg{position:absolute;inset:0;width:100%;height:100%;opacity:0;transform:scale(.86) rotate(-8deg);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
 .met-bn svg.on{opacity:1;transform:none}
-.met-r{border-left:1px solid var(--rule);padding-left:clamp(34px,5vw,55px)}
-.met-st{display:grid;position:relative;margin:0 0 34px;align-items:center}
+.met-r{order:1}
+.met-st{display:grid;position:relative;margin:0;align-items:center}
 .met-sl{grid-area:1/1;position:relative;z-index:1;opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .met-sl.on{opacity:1;transform:none;pointer-events:auto}
 .met-sl.out{opacity:0;transform:translateY(-18px)}
@@ -142,7 +146,7 @@ p{margin:0 0 16px}
 .met-t{font-size:var(--t55);font-weight:300;letter-spacing:-.03em;line-height:1.06}
 .met-t span{display:block;color:var(--ce)}
 .met-d{margin:21px 0 0;max-width:520px;font-size:var(--t21);color:var(--tx)}
-.met-ft{display:flex;align-items:center;gap:28px}
+.met-ft{grid-column:1/-1;order:3;display:flex;align-items:center;gap:28px;margin-top:21px}
 .met-ix{display:flex;gap:8px}
 .met-dt{width:28px;height:2px;padding:10px 0;background:none;border:0;cursor:pointer;position:relative;transition:width .35s}
 .met-dt::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--gg);transition:background .35s}
@@ -150,7 +154,7 @@ p{margin:0 0 16px}
 .met-dt:focus-visible{outline:1px solid var(--ce);outline-offset:4px}
 .met-pg{flex:1;height:1px;background:var(--gg);overflow:hidden}
 .met-pg i{display:block;height:100%;width:0;background:var(--ch)}
-@media(max-width:860px){.met .w{grid-template-columns:1fr}.met-bn{width:55px;margin-top:34px}.met-r{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:34px}}
+@media(max-width:860px){.met .w{grid-template-columns:1fr}.met-l{order:0;border-left:0;padding-left:0}.met-bn{width:233px;right:-89px;top:34px;transform:none;opacity:.16}.met-l h2{font-size:var(--t34);line-height:1.15}.met-r{border-top:1px solid var(--rule);padding-top:34px}}
 
 /* quem conduz */
 .sob{padding:clamp(64px,8vw,110px) 0;background:var(--gg)}
@@ -301,17 +305,17 @@ p{margin:0 0 16px}
 </div></div>
 </section>
 
-<section class="met" id="como-trabalhamos"><div class="w">
+<section class="met" id="como-trabalhamos"><span class="met-bn" id="metBn" aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" class="on"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#6C6558"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#232322"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#817C74"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#DCD7CF"/></svg></span><div class="w">
 <div class="met-l"><p class="k">Como trabalhamos</p>
-<h2>Você pilota. A gente mostra a&nbsp;direção.</h2>
-<span class="met-bn" id="metBn" aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" class="on"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#6C6558"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#232322"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#817C74"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#DCD7CF"/></svg></span></div>
+<h2>Você pilota. A gente mostra a&nbsp;direção.</h2></div>
 <div class="met-r"><div class="met-st" id="metSt" aria-roledescription="carrossel" aria-label="Etapas do trabalho">
 <div class="met-sl on" role="group" aria-label="Etapa 1 de 4"><p class="met-lb"><i></i>01 · Conversa inicial</p><h3 class="met-t">Entender <span>o seu&nbsp;momento.</span></h3><p class="met-d">Uma conversa sem compromisso para conhecer a empresa e o que você quer&nbsp;resolver.</p></div>
 <div class="met-sl" role="group" aria-label="Etapa 2 de 4"><p class="met-lb"><i></i>02 · Diagnóstico</p><h3 class="met-t">Enxergar <span>onde a empresa&nbsp;está.</span></h3><p class="met-d">Um retrato claro da situação atual e das prioridades&nbsp;reais.</p></div>
 <div class="met-sl" role="group" aria-label="Etapa 3 de 4"><p class="met-lb"><i></i>03 · Plano</p><h3 class="met-t">Definir <span>o&nbsp;caminho.</span></h3><p class="met-d">Metas, responsáveis e prazos, construídos junto com&nbsp;você.</p></div>
 <div class="met-sl" role="group" aria-label="Etapa 4 de 4"><p class="met-lb"><i></i>04 · Acompanhamento</p><h3 class="met-t">Seguir <span>ao seu&nbsp;lado.</span></h3><p class="met-d">Presença na execução, ajustando a rota quando for&nbsp;preciso.</p></div>
 </div>
-<div class="met-ft"><div class="met-ix"><button class="met-dt on" aria-label="Etapa 1"></button><button class="met-dt" aria-label="Etapa 2"></button><button class="met-dt" aria-label="Etapa 3"></button><button class="met-dt" aria-label="Etapa 4"></button></div><div class="met-pg"><i id="metPg"></i></div></div></div>
+</div>
+<div class="met-ft"><div class="met-ix"><button class="met-dt on" aria-label="Etapa 1"></button><button class="met-dt" aria-label="Etapa 2"></button><button class="met-dt" aria-label="Etapa 3"></button><button class="met-dt" aria-label="Etapa 4"></button></div><div class="met-pg"><i id="metPg"></i></div></div>
 </div></section>
 
 <section class="sob" id="quem-conduz"><div class="w">
