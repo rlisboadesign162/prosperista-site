@@ -128,10 +128,10 @@ p{margin:0 0 16px}
 /* método */
 .met{padding:clamp(64px,8vw,110px) 0}
 .met-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
-.met-ct{font-size:13px;letter-spacing:.08em;color:var(--cq);white-space:nowrap;padding-top:6px;font-variant-numeric:tabular-nums}
-.met-ct b{font-size:var(--t21);font-weight:600;color:var(--ce)}
 .met-st{display:grid;position:relative;margin:clamp(34px,5vw,55px) 0 clamp(34px,5vw,55px);min-height:clamp(200px,18vw,233px);align-items:center}
-.met-bn{position:absolute;right:-.04em;top:50%;transform:translateY(-50%);font-size:var(--t144);font-weight:200;letter-spacing:-.06em;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gg);user-select:none;pointer-events:none;font-variant-numeric:tabular-nums}
+.met-bn{position:absolute;right:0;top:50%;width:var(--t144);aspect-ratio:49.764/53.058;transform:translateY(-50%);pointer-events:none}
+.met-bn svg{position:absolute;inset:0;width:100%;height:100%;opacity:0;transform:scale(.86) rotate(-8deg);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+.met-bn svg.on{opacity:1;transform:none}
 .met-sl{grid-area:1/1;position:relative;z-index:1;opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .met-sl.on{opacity:1;transform:none;pointer-events:auto}
 .met-sl.out{opacity:0;transform:translateY(-18px)}
@@ -148,7 +148,7 @@ p{margin:0 0 16px}
 .met-dt:focus-visible{outline:1px solid var(--ce);outline-offset:4px}
 .met-pg{flex:1;height:1px;background:var(--gg);overflow:hidden}
 .met-pg i{display:block;height:100%;width:0;background:var(--ch)}
-@media(max-width:640px){.met-ct{display:none}.met-bn{top:38%}}
+@media(max-width:640px){.met-bn{top:0;transform:none;width:55px}}
 
 /* quem conduz */
 .sob{padding:clamp(64px,8vw,110px) 0;background:var(--gg)}
@@ -302,9 +302,9 @@ p{margin:0 0 16px}
 <section class="met" id="como-trabalhamos"><div class="w">
 <div class="met-hd"><div><p class="k">Como trabalhamos</p>
 <h2>Você pilota. A gente mostra a&nbsp;direção.</h2></div>
-<p class="met-ct" aria-hidden="true"><b id="metCur">01</b> / 04</p></div>
+</div>
 <div class="met-st" id="metSt" aria-roledescription="carrossel" aria-label="Etapas do trabalho">
-<span class="met-bn" id="metBn" aria-hidden="true">01</span>
+<span class="met-bn" id="metBn" aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" class="on"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#6C6558"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#232322"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#817C74"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#DCD7CF"/></svg></span>
 <div class="met-sl on" role="group" aria-label="Etapa 1 de 4"><p class="met-lb"><i></i>01 · Conversa inicial</p><h3 class="met-t">Entender <span>o seu&nbsp;momento.</span></h3><p class="met-d">Uma conversa sem compromisso para conhecer a empresa e o que você quer&nbsp;resolver.</p></div>
 <div class="met-sl" role="group" aria-label="Etapa 2 de 4"><p class="met-lb"><i></i>02 · Diagnóstico</p><h3 class="met-t">Enxergar <span>onde a empresa&nbsp;está.</span></h3><p class="met-d">Um retrato claro da situação atual e das prioridades&nbsp;reais.</p></div>
 <div class="met-sl" role="group" aria-label="Etapa 3 de 4"><p class="met-lb"><i></i>03 · Plano</p><h3 class="met-t">Definir <span>o&nbsp;caminho.</span></h3><p class="met-d">Metas, responsáveis e prazos, construídos junto com&nbsp;você.</p></div>
@@ -358,14 +358,13 @@ document.querySelectorAll('.lm').forEach(function(b){b.onclick=function(){var m=
 (function(){
 var st=document.getElementById('metSt');if(!st)return;
 var sl=[].slice.call(st.querySelectorAll('.met-sl')),dt=[].slice.call(document.querySelectorAll('.met-dt'));
-var bn=document.getElementById('metBn'),ct=document.getElementById('metCur'),pg=document.getElementById('metPg');
+var es=[].slice.call(document.querySelectorAll('#metBn svg')),pg=document.getElementById('metPg');
 var cur=0,T=4500,tm=null,vis=false,hov=false,calmo=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var nn=function(i){return ('0'+(i+1)).slice(-2)};
 var barra=function(){pg.style.transition='none';pg.style.width='0';if(calmo||!vis||hov)return;pg.offsetWidth;pg.style.transition='width '+T+'ms linear';pg.style.width='100%'};
 var agenda=function(){clearTimeout(tm);barra();if(!calmo&&vis&&!hov)tm=setTimeout(function(){vai(cur+1)},T)};
 function vai(n){var a=sl[cur];cur=(n+sl.length)%sl.length;var b=sl[cur];
 if(a!==b){a.classList.add('out');a.classList.remove('on');setTimeout(function(){a.classList.remove('out')},500);b.classList.add('on')}
-bn.textContent=ct.textContent=nn(cur);dt.forEach(function(d,i){d.classList.toggle('on',i===cur)});agenda()}
+es.forEach(function(e,i){e.classList.toggle('on',i===cur)});dt.forEach(function(d,i){d.classList.toggle('on',i===cur)});agenda()}
 dt.forEach(function(d,i){d.onclick=function(){vai(i)}});
 st.parentNode.addEventListener('mouseenter',function(){hov=true;agenda()});st.parentNode.addEventListener('mouseleave',function(){hov=false;agenda()});
 if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;agenda()},{threshold:.35}).observe(st);else{vis=true;agenda()}
