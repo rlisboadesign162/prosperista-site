@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prosperista · Consultoria de estratégia e gestão</title>
+<meta name="description" content="A Prosperista é a copiloto de quem comanda a empresa: governança, diagnóstico, revisão do modelo de negócio e palestras para empresas que querem crescer com controle.">
+<meta property="og:title" content="Prosperista · Consultoria de estratégia e gestão">
+<meta property="og:description" content="Direção clara para o próximo salto da sua empresa.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ow:#F4F1EC;--gg:#DCD7CF;--cq:#817C74;--tp:#6C6558;--gr:#232322;--ch:#C2A675;--ce:#A88C5C;--tx:#4a4845;--rule:#DCD7CF;--g:clamp(20px,5vw,64px);--hd:76px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ow);color:var(--gr);font:400 17px/1.65 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.w{max-width:1240px;margin:0 auto;padding:0 var(--g)}
+section[id]{scroll-margin-top:calc(var(--hd) + 8px)}
+.k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ce);margin:0 0 20px;display:flex;align-items:center;gap:12px}
+.k svg{width:14px;height:auto}
+h1,h2,h3{font-weight:300;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(40px,5.4vw,74px);line-height:1.04}
+h2{font-size:clamp(32px,3.6vw,50px);line-height:1.1}
+h3{font-size:20px;font-weight:500;letter-spacing:-.01em}
+p{margin:0 0 16px}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--tx);max-width:620px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;font:600 15px/1 Manrope,sans-serif;text-decoration:none;border:1px solid var(--gr);background:var(--gr);color:var(--ow);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--ce);border-color:var(--ce)}
+.btn.lt{background:transparent;color:var(--gr)}
+.btn.lt:hover{background:var(--gr);color:var(--ow);border-color:var(--gr)}
+.btn.ch{background:var(--ch);border-color:var(--ch);color:var(--gr)}
+.btn.ch:hover{background:var(--ow);border-color:var(--ow)}
+.lk{font-weight:600;font-size:15px;text-decoration:none;border-bottom:1px solid var(--ch);padding-bottom:3px}
+.lk:hover{color:var(--ce)}
+
+/* menu */
+.hd{position:fixed;inset:0 0 auto;height:var(--hd);z-index:50;transition:background .25s,box-shadow .25s}
+.hd.on{background:rgba(244,241,236,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--rule)}
+.hd .w{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:block;width:158px;flex:none}
+.logo svg{width:100%;height:auto;display:block}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:14px;font-weight:500;text-decoration:none;color:var(--tx);position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ce);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav a:hover::after,.nav a.at::after{transform:scaleX(1)}
+.nav a.at{color:var(--gr)}
+.nav .btn{padding:12px 18px;font-size:14px;color:var(--ow)}
+.nav .btn::after{display:none}
+.mb{display:none;background:none;border:0;font:600 14px Manrope,sans-serif;color:var(--gr);cursor:pointer;align-items:center;gap:10px;padding:8px 0}
+.mb i{width:22px;height:8px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor}
+.pn{position:fixed;inset:0;z-index:60;background:var(--gr);color:var(--ow);padding:24px var(--g) 40px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.pn.on{opacity:1;visibility:visible}
+.pn-t{display:flex;justify-content:space-between;align-items:center;height:28px}
+.pn-t .logo{width:140px}
+.pn-x{background:none;border:0;color:var(--ow);font:600 14px Manrope,sans-serif;cursor:pointer}
+.pn nav{margin:auto 0;display:flex;flex-direction:column}
+.pn nav a{font-size:30px;font-weight:300;letter-spacing:-.01em;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(244,241,236,.12)}
+.pn nav a small{font-size:12px;letter-spacing:.2em;color:var(--ch);margin-right:14px;vertical-align:middle;font-weight:600}
+.pn .btn{align-self:flex-start}
+@media(max-width:1020px){.nav{display:none}.mb{display:inline-flex}}
+
+/* abertura */
+.hero{padding:calc(var(--hd) + clamp(32px,6vw,72px)) 0 clamp(64px,8vw,110px)}
+.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,88px);align-items:center}
+.hero .lead{margin:28px 0 36px}
+.hero .bt{display:flex;flex-wrap:wrap;gap:14px}
+.hero figure{margin:0;position:relative}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:62% 50%}
+.hero .st{position:absolute;left:-34px;top:50%;width:68px;transform:translateY(-50%)}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr}.hero figure img{aspect-ratio:4/3}.hero .st{left:auto;right:28px;top:0;width:56px}}
+
+/* sinais */
+.sin{padding:clamp(64px,8vw,104px) 0;border-top:1px solid var(--rule)}
+.sin-g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);margin-top:44px}
+.sin-g div{border-top:1px solid var(--gr);padding-top:20px;color:var(--tx);font-size:16px}
+.sin-g b{display:block;color:var(--gr);font-weight:500;font-size:18px;line-height:1.35;margin-bottom:10px}
+.sin p.fim{margin:44px 0 0;font-size:18px}
+@media(max-width:960px){.sin-g{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.sin-g{grid-template-columns:1fr}}
+
+/* serviços */
+.sv-in{padding:clamp(64px,8vw,104px) 0 0;background:#fff}
+.sv{padding:clamp(56px,7vw,96px) 0;background:#fff}
+.sv+.sv{border-top:1px solid var(--rule)}
+.sv .w{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,88px);align-items:start}
+.sv:nth-of-type(odd) figure{order:2}
+.sv figure{margin:0;position:sticky;top:calc(var(--hd) + 24px)}
+.sv figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.n{font-size:12px;font-weight:600;letter-spacing:.24em;color:var(--ce);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.n span{color:var(--cq)}
+.sv h2,.pal h2{margin-bottom:10px}
+.sub{font-size:18px;color:var(--tp);margin:0 0 26px}
+.mais{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+.mais>div{overflow:hidden}
+.mais.on{grid-template-rows:1fr}
+.mais h3{margin:26px 0 10px}
+.mais ul{margin:0 0 8px;padding:0;list-style:none}
+.mais li{padding:9px 0 9px 26px;border-bottom:1px solid var(--rule);position:relative;color:var(--tx);font-size:16px}
+.mais li::before{content:"";position:absolute;left:2px;top:17px;width:10px;height:10px;background:var(--ch);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:28px;margin-top:30px}
+.lm{background:none;border:0;padding:0 0 3px;font:600 15px Manrope,sans-serif;color:var(--gr);cursor:pointer;border-bottom:1px solid var(--gr);display:inline-flex;align-items:center;gap:8px}
+.lm::after{content:"+";font-weight:400;font-size:18px;line-height:0}
+.lm[aria-expanded=true]::after{content:"−"}
+@media(max-width:860px){.sv .w{grid-template-columns:1fr}.sv:nth-of-type(odd) figure{order:0}.sv figure{position:static}}
+
+/* palestras */
+.pal{background:var(--gr);color:var(--ow);padding:clamp(64px,8vw,110px) 0;position:relative;overflow:hidden}
+.pal .w{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,6vw,88px);position:relative;z-index:1}
+.pal .n{color:var(--ch)}.pal .n span{color:var(--cq)}
+.pal .sub{color:var(--gg)}
+.pal .lead,.pal .mais li{color:#cfc9bf}
+.pal .mais li{border-color:rgba(244,241,236,.14)}
+.pal .lm{color:var(--ow);border-color:var(--ow)}
+.pal .pat{position:absolute;right:0;top:0;bottom:0;width:46%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%);mask-image:linear-gradient(90deg,transparent,#000 40%)}
+.pal .pat svg{width:100%;height:100%}
+@media(max-width:860px){.pal .w{grid-template-columns:1fr}.pal .pat{width:100%;opacity:.5}}
+
+/* método */
+.met{padding:clamp(64px,8vw,110px) 0}
+.met-g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);margin-top:52px;counter-reset:p}
+.met-g div{border-top:1px solid var(--rule);padding-top:22px;position:relative}
+.met-g div::before{counter-increment:p;content:"0" counter(p);display:block;font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--ce);margin-bottom:14px}
+.met-g div:first-child{border-top-color:var(--ce)}
+.met-g h3{margin-bottom:8px}
+.met-g p{color:var(--tx);font-size:16px;margin:0}
+@media(max-width:960px){.met-g{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.met-g{grid-template-columns:1fr}}
+
+/* quem conduz */
+.sob{padding:clamp(64px,8vw,110px) 0;background:var(--gg)}
+.sob .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,88px);align-items:center}
+.foto-ph{aspect-ratio:4/5;background:#cfc9c0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--tp);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.foto-ph svg{width:64px}
+.sob .cargo{font-size:18px;color:var(--tp);margin:10px 0 26px}
+.prov{border:1px dashed var(--cq);padding:18px 22px;color:var(--tp);font-size:16px;max-width:620px}
+.prov b{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ce);margin-bottom:6px}
+@media(max-width:860px){.sob .w{grid-template-columns:1fr}.foto-ph{aspect-ratio:4/3;max-width:420px}}
+
+/* agendar */
+.ag{padding:clamp(72px,9vw,128px) 0;text-align:center}
+.ag .st{width:56px;margin:0 auto 30px}
+.ag h2{max-width:780px;margin:0 auto 22px}
+.ag .lead{margin:0 auto 36px}
+.ag small{display:block;margin-top:20px;color:var(--cq);font-size:14px}
+.ag .alt{margin-top:34px;font-size:15px;color:var(--tx)}
+
+/* rodapé */
+.ft{background:var(--gr);color:var(--gg);padding:64px 0 36px;font-size:15px}
+.ft-g{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.ft .logo{width:170px;margin-bottom:18px}
+.ft h4{margin:0 0 14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ch);font-weight:600}
+.ft ul{list-style:none;margin:0;padding:0}
+.ft li{margin:0 0 8px}
+.ft a{text-decoration:none}.ft a:hover{color:var(--ch)}
+.ft-b{margin-top:56px;padding-top:24px;border-top:1px solid rgba(244,241,236,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--cq)}
+@media(max-width:860px){.ft-g{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.ft-g{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- PENDÊNCIAS (trocar quando a Sandra enviar): LINK_TITAN, E-MAIL, WHATSAPP, LINKEDIN, INSTAGRAM, foto e bio, CNPJ -->
+
+<header class="hd" id="hd"><div class="w">
+<a class="logo" href="#inicio" aria-label="Prosperista, início">{{LOGO}}</a>
+<nav class="nav" aria-label="Seções">
+<a href="#governanca">Governança</a><a href="#diagnostico">Diagnóstico</a><a href="#crescimento">Crescimento</a><a href="#palestras">Palestras</a><a href="#quem-conduz">Quem conduz</a>
+<a class="btn" href="#agendar">Agendar conversa</a>
+</nav>
+<button class="mb" id="mb" aria-expanded="false" aria-controls="pn">Menu <i></i></button>
+</div></header>
+
+<div class="pn" id="pn" role="dialog" aria-modal="true" aria-label="Menu">
+<div class="pn-t"><span class="logo">{{LOGO_NEG}}</span><button class="pn-x" id="pnx">Fechar ✕</button></div>
+<nav aria-label="Seções">
+<a href="#governanca"><small>01</small>Governança</a><a href="#diagnostico"><small>02</small>Diagnóstico</a><a href="#crescimento"><small>03</small>Crescimento</a><a href="#palestras"><small>04</small>Palestras</a><a href="#quem-conduz"><small>05</small>Quem conduz</a>
+</nav>
+<a class="btn ch" href="#agendar">Agendar conversa</a>
+</div>
+
+<main>
+<section class="hero" id="inicio"><div class="w">
+<div>
+<p class="k">{{ESTRELA}}Consultoria de estratégia e&nbsp;gestão</p>
+<h1>Direção clara para o próximo salto da sua&nbsp;empresa.</h1>
+<p class="lead">A Prosperista é a copiloto de quem comanda a empresa: traz clareza sobre onde ela está e mostra a direção para crescer com controle. O comando continua com&nbsp;você.</p>
+<div class="bt"><a class="btn" href="#agendar">Agendar conversa</a><a class="btn lt" href="#servicos">Conhecer os serviços</a></div>
+</div>
+<figure><img src="img/hero.jpg" alt="Consultora e empresário revisando juntos um caderno de anotações" width="1800" height="1005" fetchpriority="high"><span class="st">{{ESTRELA}}</span></figure>
+</div></section>
+
+<section class="sin" aria-labelledby="sin-t"><div class="w">
+<p class="k">Para quem é</p>
+<h2 id="sin-t">Você reconhece algum destes&nbsp;sinais?</h2>
+<div class="sin-g">
+<div><b>Tudo passa por&nbsp;você.</b>As decisões param quando você não está, e a equipe espera a sua&nbsp;palavra.</div>
+<div><b>A empresa cresceu, a gestão não&nbsp;acompanhou.</b>O faturamento subiu, mas o controle e a margem não vieram&nbsp;junto.</div>
+<div><b>Sócios sem o mesmo&nbsp;rumo.</b>Falta um espaço claro para discutir, decidir e registrar o que foi&nbsp;combinado.</div>
+<div><b>Muitas ideias, pouca&nbsp;prioridade.</b>Há caminhos para crescer, mas não está claro por onde&nbsp;começar.</div>
+</div>
+<p class="fim">Se a resposta for sim, a Prosperista pode ajudar. <a class="lk" href="#agendar">Vamos&nbsp;conversar</a></p>
+</div></section>
+
+<div class="sv-in" id="servicos"><div class="w">
+<p class="k">Como podemos ajudar</p>
+<h2>Quatro frentes, um mesmo objetivo: decisões melhores, com mais&nbsp;segurança.</h2>
+</div></div>
+
+<section class="sv" id="governanca"><div class="w">
+<figure><img src="img/governanca.jpg" alt="Reunião de sócios e conselheiros em torno de uma mesa" width="1600" height="893" loading="lazy"></figure>
+<div>
+<p class="n">01 <span>·</span> GOVERNANÇA CORPORATIVA</p>
+<h2>Estrutura decisória</h2>
+<p class="sub">Quem decide o quê, quando e com base em&nbsp;quê.</p>
+<p class="lead">Uma estrutura de governança do tamanho da sua empresa, para que as decisões deixem de depender de uma pessoa só e os sócios falem a mesma&nbsp;língua.</p>
+<div class="mais" id="m1"><div>
+<h3>Para quem é</h3>
+<p>Empresas familiares e de sócios que cresceram e sentem que tudo ainda passa pelo dono, ou que precisam preparar a sucessão e a entrada de novos&nbsp;sócios.</p>
+<h3>Você sai com</h3>
+<ul><li>Mapa de decisões: quem decide o quê e com qual&nbsp;alçada</li><li>Rotina de reuniões com pauta, frequência e registro das&nbsp;decisões</li><li>Desenho de conselho consultivo ou de sócios, quando fizer&nbsp;sentido</li><li>Acordos e políticas essenciais para crescer sem&nbsp;conflito</li></ul>
+</div></div>
+<div class="acoes"><button class="lm" aria-expanded="false" aria-controls="m1">Ler mais</button><a class="lk" href="#agendar">Agendar conversa</a></div>
+</div>
+</div></section>
+
+<section class="sv" id="diagnostico"><div class="w">
+<figure><img src="img/diagnostico.jpg" alt="Empresária analisando um relatório com gráficos" width="1600" height="893" loading="lazy"></figure>
+<div>
+<p class="n">02 <span>·</span> DIAGNÓSTICO</p>
+<h2>Clareza estratégica</h2>
+<p class="sub">Antes de decidir para onde ir, saber onde a empresa&nbsp;está.</p>
+<p class="lead">Um diagnóstico objetivo de finanças, operação, pessoas e mercado, que mostra o que funciona, o que trava e o que fazer&nbsp;primeiro.</p>
+<div class="mais" id="m2"><div>
+<h3>Como funciona</h3>
+<p>Conversas com você e com a liderança, análise dos números e dos processos e uma visita à operação. Tudo com linguagem simples, sem relatório que ninguém&nbsp;lê.</p>
+<h3>Você sai com</h3>
+<ul><li>Um retrato honesto da situação&nbsp;atual</li><li>Os pontos críticos e as oportunidades mais&nbsp;claras</li><li>Prioridades em ordem de&nbsp;impacto</li><li>Recomendação dos próximos&nbsp;passos</li></ul>
+</div></div>
+<div class="acoes"><button class="lm" aria-expanded="false" aria-controls="m2">Ler mais</button><a class="lk" href="#agendar">Agendar conversa</a></div>
+</div>
+</div></section>
+
+<section class="sv" id="crescimento"><div class="w">
+<figure><img src="img/crescimento.jpg" alt="Gestores conversando em um centro de distribuição" width="1600" height="893" loading="lazy"></figure>
+<div>
+<p class="n">03 <span>·</span> MODELO DE NEGÓCIO E IMPLEMENTAÇÃO</p>
+<h2>Crescimento desbloqueado</h2>
+<p class="sub">O que trouxe a empresa até aqui nem sempre leva ao próximo&nbsp;nível.</p>
+<p class="lead">Revisão do modelo de negócio e um plano de implementação que cabe na rotina: metas, responsáveis e prazos, com acompanhamento nos primeiros&nbsp;ciclos.</p>
+<div class="mais" id="m3"><div>
+<h3>O que revisamos com você</h3>
+<ul><li>Proposta de valor, clientes e&nbsp;canais</li><li>Receitas, margens e estrutura de&nbsp;custos</li><li>O que manter, o que ajustar e o que&nbsp;parar</li></ul>
+<h3>Você sai com</h3>
+<ul><li>Plano de ação priorizado, com metas e&nbsp;responsáveis</li><li>Indicadores simples para acompanhar a&nbsp;execução</li><li>Ritmo de acompanhamento para ajustar a rota no&nbsp;caminho</li></ul>
+</div></div>
+<div class="acoes"><button class="lm" aria-expanded="false" aria-controls="m3">Ler mais</button><a class="lk" href="#agendar">Agendar conversa</a></div>
+</div>
+</div></section>
+
+<section class="pal" id="palestras">
+<div class="pat" aria-hidden="true">{{PADRAO}}</div>
+<div class="w"><div>
+<p class="n">04 <span>·</span> EVENTOS CORPORATIVOS</p>
+<h2>Palestras estratégicas</h2>
+<p class="sub">Conteúdo prático para quem lidera e&nbsp;decide.</p>
+<p class="lead">Palestras sobre gestão, governança e crescimento para convenções, encontros de liderança, associações e programas de&nbsp;aceleração.</p>
+<div class="mais" id="m4"><div>
+<h3>Temas</h3>
+<ul><li>Governança na empresa familiar e entre&nbsp;sócios</li><li>Da intuição à gestão: decidir com&nbsp;clareza</li><li>Crescer sem perder o&nbsp;controle</li><li>O dono como líder, não como&nbsp;gargalo</li></ul>
+<h3>Formatos</h3>
+<p>Palestra, painel ou workshop, presencial ou online, adaptados ao público e ao tempo do&nbsp;evento.</p>
+</div></div>
+<div class="acoes"><button class="lm" aria-expanded="false" aria-controls="m4">Ler mais</button><a class="btn ch" href="mailto:{{EMAIL}}?subject=Convite%20para%20palestra">Convidar para palestra</a></div>
+</div></div>
+</section>
+
+<section class="met" id="como-trabalhamos"><div class="w">
+<p class="k">Como trabalhamos</p>
+<h2>Você pilota. A gente mostra a&nbsp;direção.</h2>
+<div class="met-g">
+<div><h3>Conversa inicial</h3><p>Entendemos o momento da empresa e o que você quer resolver, sem&nbsp;compromisso.</p></div>
+<div><h3>Diagnóstico</h3><p>Um retrato claro de onde a empresa está e das prioridades&nbsp;reais.</p></div>
+<div><h3>Plano</h3><p>O caminho definido com você: metas, responsáveis e&nbsp;prazos.</p></div>
+<div><h3>Acompanhamento</h3><p>Ao seu lado na execução, ajustando a rota quando for&nbsp;preciso.</p></div>
+</div>
+</div></section>
+
+<section class="sob" id="quem-conduz"><div class="w">
+<div class="foto-ph" role="img" aria-label="Espaço para a foto da Sandra">{{ESTRELA}}Foto da Sandra</div>
+<div>
+<p class="k">Quem conduz</p>
+<h2>Sandra Lia Morassutti</h2>
+<p class="cargo">Fundadora da Prosperista</p>
+<div class="prov"><b>Conteúdo a receber</b>Apresentação da Sandra: formação, trajetória e o que a levou a criar a Prosperista, em 5 a 8&nbsp;linhas.</div>
+<p style="margin-top:26px"><a class="lk" href="{{LINKEDIN}}">Ver perfil no LinkedIn</a></p>
+</div>
+</div></section>
+
+<section class="ag" id="agendar"><div class="w">
+<div class="st">{{ESTRELA}}</div>
+<h2>Vamos conversar sobre o seu próximo&nbsp;salto?</h2>
+<p class="lead">Uma conversa inicial de 45 minutos, online e sem compromisso, para entender o momento da sua&nbsp;empresa.</p>
+<a class="btn" href="{{LINK_TITAN}}" target="_blank" rel="noopener">Escolher um horário</a>
+<small>Você recebe a confirmação e o convite por&nbsp;e-mail.</small>
+<p class="alt">Prefere escrever? <a class="lk" href="mailto:{{EMAIL}}">{{EMAIL}}</a></p>
+</div></section>
+</main>
+
+<footer class="ft"><div class="w">
+<div class="ft-g">
+<div><span class="logo">{{LOGO_NEG}}</span><p>Consultoria de estratégia e gestão para empresas que querem crescer com&nbsp;controle.</p></div>
+<div><h4>Serviços</h4><ul><li><a href="#governanca">Estrutura decisória</a></li><li><a href="#diagnostico">Clareza estratégica</a></li><li><a href="#crescimento">Crescimento desbloqueado</a></li><li><a href="#palestras">Palestras estratégicas</a></li></ul></div>
+<div><h4>Contato</h4><ul><li><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li><li><a href="{{WHATSAPP}}">WhatsApp</a></li><li><a href="#agendar">Agendar conversa</a></li></ul></div>
+<div><h4>Redes</h4><ul><li><a href="{{LINKEDIN}}">LinkedIn</a></li><li><a href="{{INSTAGRAM}}">Instagram</a></li></ul></div>
+</div>
+<div class="ft-b"><span>© 2026 Prosperista Consultoria · CNPJ a informar</span><span>Política de privacidade (em breve)</span></div>
+</div></footer>
+
+<script>
+(function(){
+var hd=document.getElementById('hd');
+var on=function(){hd.classList.toggle('on',scrollY>10)};on();addEventListener('scroll',on,{passive:true});
+var pn=document.getElementById('pn'),mb=document.getElementById('mb');
+var abre=function(v){pn.classList.toggle('on',v);mb.setAttribute('aria-expanded',v);document.body.style.overflow=v?'hidden':''};
+mb.onclick=function(){abre(true)};document.getElementById('pnx').onclick=function(){abre(false)};
+pn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){abre(false)})});
+addEventListener('keydown',function(e){if(e.key==='Escape')abre(false)});
+document.querySelectorAll('.lm').forEach(function(b){b.onclick=function(){var m=document.getElementById(b.getAttribute('aria-controls')),v=b.getAttribute('aria-expanded')!=='true';m.classList.toggle('on',v);b.setAttribute('aria-expanded',v);b.textContent=v?'Ler menos':'Ler mais'}});
+var links=document.querySelectorAll('.nav a[href^="#"]:not(.btn)');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('at',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+['governanca','diagnostico','crescimento','palestras','quem-conduz','inicio','como-trabalhamos','agendar'].forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s)})}
+})();
+</script>
+</body>
+</html>
