@@ -79,6 +79,20 @@ p{margin:0 0 16px}
 .hero .st{position:absolute;left:-34px;top:50%;width:68px;transform:translateY(-50%)}
 @media(max-width:860px){.hero .w{grid-template-columns:1fr}.hero figure img{aspect-ratio:4/3}.hero .st{left:auto;right:28px;top:0;width:56px}}
 
+/* duas metades: ao rolar, as metades se abrem para os lados de uma vez (transição rápida, sem parar no meio) e o texto ocupa o vão */
+.dm{position:relative;height:200vh;background:var(--gg)}
+.dm-in{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.dm-m{position:absolute;top:50%;height:233px;width:auto;transition:transform .8s cubic-bezier(.05,.75,.15,1)}
+.dm-m.e{right:calc(50% - .6px);transform:translateY(-50%)}
+.dm-m.d{left:50%;transform:translateY(-50%)}
+.dm.on .dm-m.e{transform:translateY(-50%) translateX(calc(-1 * min(31vw,420px)))}
+.dm.on .dm-m.d{transform:translateY(-50%) translateX(min(31vw,420px))}
+.dm-t{position:relative;z-index:1;text-align:center;font-size:var(--t55);font-weight:300;letter-spacing:-.03em;line-height:1.06;opacity:0;transform:scale(.96);transition:opacity .35s ease,transform .8s cubic-bezier(.05,.75,.15,1);margin:0}
+.dm-t span{display:block;color:var(--ce)}
+.dm.on .dm-t{opacity:1;transform:none}
+@media(max-width:640px){.dm-m{height:144px}.dm.on .dm-m.e{transform:translateY(-50%) translateX(-31vw)}.dm.on .dm-m.d{transform:translateY(-50%) translateX(31vw)}.dm-t{font-size:30px}}
+@media(prefers-reduced-motion:reduce){.dm{height:auto}.dm-in{position:relative;height:70vh}}
+
 /* sinais */
 .sin{padding:clamp(64px,8vw,104px) 0;border-top:1px solid var(--rule)}
 .sin-g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);margin-top:44px}
@@ -161,10 +175,11 @@ p{margin:0 0 16px}
 .sob .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,88px);align-items:center}
 .foto-ph{aspect-ratio:4/5;background:#cfc9c0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--tp);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
 .foto-ph svg{width:64px}
+.sob-f{margin:0}.sob-f img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .sob .cargo{font-size:var(--t21);color:var(--tp);margin:10px 0 26px}
 .prov{border:1px dashed var(--cq);padding:18px 22px;color:var(--tp);font-size:16px;max-width:620px}
 .prov b{display:block;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--ce);margin-bottom:6px}
-@media(max-width:860px){.sob .w{grid-template-columns:1fr}.foto-ph{aspect-ratio:4/3;max-width:420px}}
+@media(max-width:860px){.sob .w{grid-template-columns:1fr}.foto-ph{aspect-ratio:4/3;max-width:420px}.sob-f{max-width:420px}}
 
 /* agendar */
 .ag{padding:clamp(72px,9vw,128px) 0;text-align:center}
@@ -218,6 +233,12 @@ p{margin:0 0 16px}
 <div class="bt"><a class="btn" href="#agendar">Agendar conversa</a><a class="btn lt" href="#servicos">Conhecer os serviços</a></div>
 </div>
 <figure><img src="img/hero.jpg" alt="Consultora e empresário revisando juntos um caderno de anotações" width="1800" height="1005" fetchpriority="high"><span class="st"><svg viewBox="25.118 23.471 49.764 53.058" aria-hidden="true"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></span></figure>
+</div></section>
+
+<section class="dm" id="duas-metades" aria-label="Duas metades, uma direção"><div class="dm-in">
+<svg class="dm-m e" viewBox="25.118 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg>
+<svg class="dm-m d" viewBox="50 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H50Z" fill="#A88C5C"/></svg>
+<p class="dm-t">Duas metades, <span>uma&nbsp;direção.</span></p>
 </div></section>
 
 <section class="sin" aria-labelledby="sin-t"><div class="w">
@@ -319,7 +340,7 @@ p{margin:0 0 16px}
 </div></section>
 
 <section class="sob" id="quem-conduz"><div class="w">
-<div class="foto-ph" role="img" aria-label="Espaço para a foto da Sandra"><svg viewBox="25.118 23.471 49.764 53.058" aria-hidden="true"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg>Foto da Sandra</div>
+<figure class="sob-f"><img src="img/sandra.jpg" alt="Sandra Lia Morassutti, fundadora da Prosperista" width="900" height="1125" loading="lazy"></figure>
 <div>
 <p class="k">Quem conduz</p>
 <h2>Sandra Lia Morassutti</h2>
@@ -359,6 +380,10 @@ mb.onclick=function(){abre(true)};document.getElementById('pnx').onclick=functio
 pn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){abre(false)})});
 addEventListener('keydown',function(e){if(e.key==='Escape')abre(false)});
 document.querySelectorAll('.lm').forEach(function(b){b.onclick=function(){var m=document.getElementById(b.getAttribute('aria-controls')),v=b.getAttribute('aria-expanded')!=='true';m.classList.toggle('on',v);b.setAttribute('aria-expanded',v);b.textContent=v?'Ler menos':'Ler mais'}});
+// duas metades: abre quando a seção chega a um terço da rolagem e fecha ao voltar
+(function(){var d=document.getElementById('duas-metades');if(!d)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('on');return}
+var f=function(){var r=d.getBoundingClientRect(),t=d.offsetHeight-innerHeight;d.classList.toggle('on',-r.top>t*.3)};f();addEventListener('scroll',f,{passive:true})})();
 // Como trabalhamos: etapas em sequência (avança sozinho, pausa com o mouse em cima e quando sai da tela)
 (function(){
 var st=document.getElementById('metSt');if(!st)return;
