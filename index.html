@@ -125,14 +125,28 @@ p{margin:0 0 16px}
 
 /* método */
 .met{padding:clamp(64px,8vw,110px) 0}
-.met-g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);margin-top:52px;counter-reset:p}
-.met-g div{border-top:1px solid var(--rule);padding-top:22px;position:relative}
-.met-g div::before{counter-increment:p;content:"0" counter(p);display:block;font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--ce);margin-bottom:14px}
-.met-g div:first-child{border-top-color:var(--ce)}
-.met-g h3{margin-bottom:8px}
-.met-g p{color:var(--tx);font-size:16px;margin:0}
-@media(max-width:960px){.met-g{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.met-g{grid-template-columns:1fr}}
+.met-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.met-ct{font-size:13px;letter-spacing:.08em;color:var(--cq);white-space:nowrap;padding-top:6px;font-variant-numeric:tabular-nums}
+.met-ct b{font-size:18px;font-weight:600;color:var(--ce)}
+.met-st{display:grid;position:relative;margin:clamp(48px,6vw,80px) 0 clamp(40px,5vw,64px);min-height:clamp(260px,26vw,340px);align-items:center}
+.met-bn{position:absolute;right:-.04em;top:50%;transform:translateY(-50%);font-size:clamp(170px,24vw,330px);font-weight:200;letter-spacing:-.06em;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gg);user-select:none;pointer-events:none;font-variant-numeric:tabular-nums}
+.met-sl{grid-area:1/1;position:relative;z-index:1;opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.met-sl.on{opacity:1;transform:none;pointer-events:auto}
+.met-sl.out{opacity:0;transform:translateY(-18px)}
+.met-lb{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--ce);display:flex;align-items:center;gap:14px;margin:0 0 22px}
+.met-lb i{width:32px;height:1px;background:var(--ce)}
+.met-t{font-size:clamp(40px,6vw,84px);font-weight:300;letter-spacing:-.035em;line-height:1.02;max-width:880px}
+.met-t span{display:block;color:var(--ce)}
+.met-d{margin:26px 0 0;max-width:520px;font-size:clamp(16px,1.4vw,19px);color:var(--tx)}
+.met-ft{display:flex;align-items:center;gap:28px}
+.met-ix{display:flex;gap:8px}
+.met-dt{width:28px;height:2px;padding:10px 0;background:none;border:0;cursor:pointer;position:relative;transition:width .35s}
+.met-dt::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--gg);transition:background .35s}
+.met-dt.on{width:48px}.met-dt.on::before{background:var(--ce)}
+.met-dt:focus-visible{outline:1px solid var(--ce);outline-offset:4px}
+.met-pg{flex:1;height:1px;background:var(--gg);overflow:hidden}
+.met-pg i{display:block;height:100%;width:0;background:var(--ch)}
+@media(max-width:640px){.met-ct{display:none}.met-bn{top:38%;font-size:150px}}
 
 /* quem conduz */
 .sob{padding:clamp(64px,8vw,110px) 0;background:var(--gg)}
@@ -284,14 +298,17 @@ p{margin:0 0 16px}
 </section>
 
 <section class="met" id="como-trabalhamos"><div class="w">
-<p class="k">Como trabalhamos</p>
-<h2>Você pilota. A gente mostra a&nbsp;direção.</h2>
-<div class="met-g">
-<div><h3>Conversa inicial</h3><p>Entendemos o momento da empresa e o que você quer resolver, sem&nbsp;compromisso.</p></div>
-<div><h3>Diagnóstico</h3><p>Um retrato claro de onde a empresa está e das prioridades&nbsp;reais.</p></div>
-<div><h3>Plano</h3><p>O caminho definido com você: metas, responsáveis e&nbsp;prazos.</p></div>
-<div><h3>Acompanhamento</h3><p>Ao seu lado na execução, ajustando a rota quando for&nbsp;preciso.</p></div>
+<div class="met-hd"><div><p class="k">Como trabalhamos</p>
+<h2>Você pilota. A gente mostra a&nbsp;direção.</h2></div>
+<p class="met-ct" aria-hidden="true"><b id="metCur">01</b> / 04</p></div>
+<div class="met-st" id="metSt" aria-roledescription="carrossel" aria-label="Etapas do trabalho">
+<span class="met-bn" id="metBn" aria-hidden="true">01</span>
+<div class="met-sl on" role="group" aria-label="Etapa 1 de 4"><p class="met-lb"><i></i>01 · Conversa inicial</p><h3 class="met-t">Entender <span>o seu&nbsp;momento.</span></h3><p class="met-d">Uma conversa sem compromisso para conhecer a empresa e o que você quer&nbsp;resolver.</p></div>
+<div class="met-sl" role="group" aria-label="Etapa 2 de 4"><p class="met-lb"><i></i>02 · Diagnóstico</p><h3 class="met-t">Enxergar <span>onde a empresa&nbsp;está.</span></h3><p class="met-d">Um retrato claro da situação atual e das prioridades&nbsp;reais.</p></div>
+<div class="met-sl" role="group" aria-label="Etapa 3 de 4"><p class="met-lb"><i></i>03 · Plano</p><h3 class="met-t">Definir <span>o&nbsp;caminho.</span></h3><p class="met-d">Metas, responsáveis e prazos, construídos junto com&nbsp;você.</p></div>
+<div class="met-sl" role="group" aria-label="Etapa 4 de 4"><p class="met-lb"><i></i>04 · Acompanhamento</p><h3 class="met-t">Seguir <span>ao seu&nbsp;lado.</span></h3><p class="met-d">Presença na execução, ajustando a rota quando for&nbsp;preciso.</p></div>
 </div>
+<div class="met-ft"><div class="met-ix"><button class="met-dt on" aria-label="Etapa 1"></button><button class="met-dt" aria-label="Etapa 2"></button><button class="met-dt" aria-label="Etapa 3"></button><button class="met-dt" aria-label="Etapa 4"></button></div><div class="met-pg"><i id="metPg"></i></div></div>
 </div></section>
 
 <section class="sob" id="quem-conduz"><div class="w">
@@ -335,6 +352,22 @@ mb.onclick=function(){abre(true)};document.getElementById('pnx').onclick=functio
 pn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){abre(false)})});
 addEventListener('keydown',function(e){if(e.key==='Escape')abre(false)});
 document.querySelectorAll('.lm').forEach(function(b){b.onclick=function(){var m=document.getElementById(b.getAttribute('aria-controls')),v=b.getAttribute('aria-expanded')!=='true';m.classList.toggle('on',v);b.setAttribute('aria-expanded',v);b.textContent=v?'Ler menos':'Ler mais'}});
+// Como trabalhamos: etapas em sequência (avança sozinho, pausa com o mouse em cima e quando sai da tela)
+(function(){
+var st=document.getElementById('metSt');if(!st)return;
+var sl=[].slice.call(st.querySelectorAll('.met-sl')),dt=[].slice.call(document.querySelectorAll('.met-dt'));
+var bn=document.getElementById('metBn'),ct=document.getElementById('metCur'),pg=document.getElementById('metPg');
+var cur=0,T=4500,tm=null,vis=false,hov=false,calmo=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var nn=function(i){return ('0'+(i+1)).slice(-2)};
+var barra=function(){pg.style.transition='none';pg.style.width='0';if(calmo||!vis||hov)return;pg.offsetWidth;pg.style.transition='width '+T+'ms linear';pg.style.width='100%'};
+var agenda=function(){clearTimeout(tm);barra();if(!calmo&&vis&&!hov)tm=setTimeout(function(){vai(cur+1)},T)};
+function vai(n){var a=sl[cur];cur=(n+sl.length)%sl.length;var b=sl[cur];
+if(a!==b){a.classList.add('out');a.classList.remove('on');setTimeout(function(){a.classList.remove('out')},500);b.classList.add('on')}
+bn.textContent=ct.textContent=nn(cur);dt.forEach(function(d,i){d.classList.toggle('on',i===cur)});agenda()}
+dt.forEach(function(d,i){d.onclick=function(){vai(i)}});
+st.parentNode.addEventListener('mouseenter',function(){hov=true;agenda()});st.parentNode.addEventListener('mouseleave',function(){hov=false;agenda()});
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;agenda()},{threshold:.35}).observe(st);else{vis=true;agenda()}
+})();
 var links=document.querySelectorAll('.nav a[href^="#"]:not(.btn)');
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('at',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
 ['governanca','diagnostico','crescimento','palestras','quem-conduz','inicio','como-trabalhamos','agendar'].forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s)})}
