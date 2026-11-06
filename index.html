@@ -80,17 +80,20 @@ p{margin:0 0 16px}
 @media(max-width:860px){.hero .w{grid-template-columns:1fr}.hero figure img{aspect-ratio:4/3}.hero .st{left:auto;right:28px;top:0;width:56px}}
 
 /* duas metades: ao rolar, as metades se abrem para os lados de uma vez (transição rápida, sem parar no meio) e o texto ocupa o vão */
-.dm{position:relative;height:200vh;background:var(--gg)}
-.dm-in{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.dm-m{position:absolute;top:50%;height:233px;width:auto;transition:transform .8s cubic-bezier(.05,.75,.15,1)}
-.dm-m.e{right:calc(50% - .6px);transform:translateY(-50%)}
-.dm-m.d{left:50%;transform:translateY(-50%)}
-.dm.on .dm-m.e{transform:translateY(-50%) translateX(calc(-1 * min(31vw,420px)))}
-.dm.on .dm-m.d{transform:translateY(-50%) translateX(min(31vw,420px))}
-.dm-t{position:relative;z-index:1;text-align:center;font-size:var(--t55);font-weight:300;letter-spacing:-.03em;line-height:1.06;opacity:0;transform:scale(.96);transition:opacity .35s ease,transform .8s cubic-bezier(.05,.75,.15,1);margin:0}
+.dm{position:relative;height:320vh;background:var(--gg)}
+.dm-in{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;--g:250px}
+/* duas camadas por metade: .dm-v anda com a rolagem (fluido, até sair da tela); .dm-m dá o salto inicial de abertura
+   numa transição rápida, para a fresta vertical nunca ficar parada na tela */
+.dm-v{position:absolute;top:50%;height:233px;will-change:transform}
+.dm-v.e{right:calc(50% - .6px);transform:translate3d(calc(-1 * var(--x,0px)),-50%,0)}
+.dm-v.d{left:50%;transform:translate3d(var(--x,0px),-50%,0)}
+.dm-m{display:block;height:100%;width:auto;transition:transform .55s cubic-bezier(.05,.75,.15,1)}
+.dm.on .dm-v.e .dm-m{transform:translateX(calc(-1 * var(--g)))}
+.dm.on .dm-v.d .dm-m{transform:translateX(var(--g))}
+.dm-t{position:relative;z-index:1;text-align:center;font-size:var(--t55);font-weight:300;letter-spacing:-.03em;line-height:1.06;opacity:0;transform:scale(.96);transition:opacity .4s ease,transform .7s cubic-bezier(.05,.75,.15,1);margin:0}
 .dm-t span{display:block;color:var(--ce)}
 .dm.on .dm-t{opacity:1;transform:none}
-@media(max-width:640px){.dm-m{height:144px}.dm.on .dm-m.e{transform:translateY(-50%) translateX(-31vw)}.dm.on .dm-m.d{transform:translateY(-50%) translateX(31vw)}.dm-t{font-size:30px}}
+@media(max-width:640px){.dm-in{--g:31vw}.dm-v{height:144px}.dm-t{font-size:30px}}
 @media(prefers-reduced-motion:reduce){.dm{height:auto}.dm-in{position:relative;height:70vh}}
 
 /* sinais */
@@ -240,8 +243,8 @@ p{margin:0 0 16px}
 </div></section>
 
 <section class="dm" id="duas-metades" aria-label="Duas metades, uma direção"><div class="dm-in">
-<svg class="dm-m e" viewBox="25.118 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg>
-<svg class="dm-m d" viewBox="50 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H50Z" fill="#A88C5C"/></svg>
+<div class="dm-v e"><svg class="dm-m" viewBox="25.118 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></div>
+<div class="dm-v d"><svg class="dm-m" viewBox="50 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H50Z" fill="#A88C5C"/></svg></div>
 <p class="dm-t">Duas metades, <span>uma&nbsp;direção.</span></p>
 </div></section>
 
@@ -384,10 +387,18 @@ mb.onclick=function(){abre(true)};document.getElementById('pnx').onclick=functio
 pn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){abre(false)})});
 addEventListener('keydown',function(e){if(e.key==='Escape')abre(false)});
 document.querySelectorAll('.lm').forEach(function(b){b.onclick=function(){var m=document.getElementById(b.getAttribute('aria-controls')),v=b.getAttribute('aria-expanded')!=='true';m.classList.toggle('on',v);b.setAttribute('aria-expanded',v);b.textContent=v?'Ler menos':'Ler mais'}});
-// duas metades: abre quando a seção chega a um terço da rolagem e fecha ao voltar
+// duas metades: 1) abre de uma vez ao entrar; 2) as metades seguem a rolagem até passar das laterais;
+// 3) no fim, a página desce sozinha para o bloco seguinte (uma vez por passagem, só rolando para baixo)
 (function(){var d=document.getElementById('duas-metades');if(!d)return;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('on');return}
-var f=function(){var r=d.getBoundingClientRect(),t=d.offsetHeight-innerHeight;d.classList.toggle('on',-r.top>t*.3)};f();addEventListener('scroll',f,{passive:true})})();
+var inn=d.querySelector('.dm-in'),prox=d.nextElementSibling,ult=scrollY,foi=false,pend=false;
+var cl=function(v){return v<0?0:v>1?1:v},suave=function(t){return t*t*(3-2*t)};
+function quadro(){pend=false;var r=d.getBoundingClientRect(),tot=d.offsetHeight-innerHeight,p=cl(-r.top/tot),desce=scrollY>ult;ult=scrollY;
+d.classList.toggle('on',p>.08);
+var g=parseFloat(getComputedStyle(inn).getPropertyValue('--g'))||0;if(innerWidth<=640)g=innerWidth*.31;
+var fim=innerWidth/2-g+40;inn.style.setProperty('--x',(suave(cl((p-.12)/.6))*fim).toFixed(1)+'px');
+if(p>.78&&desce&&!foi&&prox){foi=true;prox.scrollIntoView({behavior:'smooth'})}if(p<.4)foi=false}
+addEventListener('scroll',function(){if(!pend){pend=true;requestAnimationFrame(quadro)}},{passive:true});quadro()})();
 // Como trabalhamos: etapas em sequência (avança sozinho, pausa com o mouse em cima e quando sai da tela)
 (function(){
 var st=document.getElementById('metSt');if(!st)return;
