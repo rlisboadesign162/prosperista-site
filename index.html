@@ -80,20 +80,24 @@ p{margin:0 0 16px}
 @media(max-width:860px){.hero .w{grid-template-columns:1fr}.hero figure img{aspect-ratio:4/3}.hero .st{left:auto;right:28px;top:0;width:56px}}
 
 /* duas metades: ao rolar, as metades se abrem para os lados de uma vez (transição rápida, sem parar no meio) e o texto ocupa o vão */
-.dm{position:relative;height:100vh;min-height:520px;background:var(--gg);overflow:hidden;--h:233px}
-/* sequência automática (como um vídeo): um gesto de rolagem na abertura leva até aqui, as metades vêm das laterais
-   e se encontram (o último trecho acelera até o encaixe, para a fresta não ficar parada), surge "uma direção."
-   e a página segue sozinha para o bloco de baixo. Posições e tempos ficam no script. */
-.dm-v{position:absolute;top:50%;height:var(--h);transform:translateY(-50%)}
-.dm-v.e{right:calc(50% - .6px)}
-.dm-v.d{left:50%}
-.dm-v svg{display:block;height:100%;width:auto}
-.dm-a,.dm-b{position:absolute;left:0;right:0;text-align:center;font-size:var(--t55);font-weight:300;letter-spacing:-.03em;line-height:1.06;margin:0}
+.dm{position:relative;height:240vh;background:var(--gg)}
+.dm-in{position:sticky;top:0;height:100vh;overflow:hidden;--h:233px}
+/* as metades seguem a rolagem (com amortecimento) das laterais até o centro, e voltam ao subir.
+   O último trecho do encontro (.dm-m) é um salto rápido, para a fresta vertical nunca ficar parada na tela. */
+.dm-v{position:absolute;top:50%;height:var(--h);will-change:transform}
+.dm-v.e{right:calc(50% - .6px);transform:translate3d(calc(-1 * var(--x,0px)),-50%,0)}
+.dm-v.d{left:50%;transform:translate3d(var(--x,0px),-50%,0)}
+.dm-m{display:block;height:100%;width:auto;transition:transform .45s cubic-bezier(.6,0,.25,1)}
+.dm-v.e .dm-m{transform:translateX(calc(-1 * var(--g,250px)))}
+.dm-v.d .dm-m{transform:translateX(var(--g,250px))}
+.dm.on .dm-v .dm-m{transform:none}
+.dm-a,.dm-b{position:absolute;left:0;right:0;text-align:center;font-size:var(--t55);font-weight:300;letter-spacing:-.03em;line-height:1.06;margin:0;transition:opacity .45s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
 .dm-a{top:50%;transform:translateY(-50%)}
-.dm-b{top:calc(50% + var(--h) / 2 + 34px);color:var(--ce);opacity:0}
-.dm.fim .dm-a{opacity:0}.dm.fim .dm-b{opacity:1}
-@media(max-width:640px){.dm{--h:144px}.dm-a,.dm-b{font-size:30px}}
-html.trava,html.trava body{overflow:hidden}
+.dm.on .dm-a{opacity:0;transform:translateY(calc(-50% - 21px))}
+.dm-b{top:calc(50% + var(--h) / 2 + 34px);color:var(--ce);opacity:0;transform:translateY(13px)}
+.dm.on .dm-b{opacity:1;transform:none;transition-delay:.15s}
+@media(max-width:640px){.dm-in{--h:144px}.dm-a,.dm-b{font-size:30px}}
+@media(prefers-reduced-motion:reduce){.dm{height:auto}.dm-in{position:relative;height:80vh}}
 
 /* sinais */
 .sin{padding:clamp(64px,8vw,104px) 0;border-top:1px solid var(--rule)}
@@ -142,12 +146,13 @@ html.trava,html.trava body{overflow:hidden}
 @media(max-width:860px){.pal .w{grid-template-columns:1fr}.pal .pat{width:100%;opacity:.5}}
 
 /* método */
-.met{padding:clamp(64px,8vw,110px) 0}
+.met{height:300vh;position:relative}
+.met-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:var(--hd)}
+.met-pin>.w{width:100%}
 .met .w{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(34px,6vw,89px);align-items:center}
 .met-l{order:2;border-left:1px solid var(--rule);padding-left:clamp(34px,5vw,55px)}
 .met-l h2{font-size:var(--t21);line-height:1.4}
 .met-l .k{margin-bottom:13px}
-.met{position:relative;overflow:hidden}
 .met .w{position:relative;z-index:1}
 .met-bn{position:absolute;right:-144px;top:50%;width:377px;aspect-ratio:49.764/53.058;transform:translateY(-50%);pointer-events:none;opacity:.22}
 .met-bn svg{position:absolute;inset:0;width:100%;height:100%;opacity:0;transform:scale(.86) rotate(-8deg);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
@@ -169,7 +174,7 @@ html.trava,html.trava body{overflow:hidden}
 .met-dt.on{width:48px}.met-dt.on::before{background:var(--ce)}
 .met-dt:focus-visible{outline:1px solid var(--ce);outline-offset:4px}
 .met-pg{flex:1;height:1px;background:var(--gg);overflow:hidden}
-.met-pg i{display:block;height:100%;width:0;background:var(--ch)}
+.met-pg i{display:block;height:100%;width:0;background:var(--ch);will-change:width}
 @media(max-width:860px){.met .w{grid-template-columns:1fr}.met-l{order:0;border-left:0;padding-left:0}.met-bn{width:233px;right:-89px;top:34px;transform:none;opacity:.16}.met-l h2{font-size:var(--t34);line-height:1.15}.met-r{border-top:1px solid var(--rule);padding-top:34px}}
 
 /* quem conduz */
@@ -241,12 +246,12 @@ html.trava,html.trava body{overflow:hidden}
 <figure><img src="img/hero.jpg" alt="Consultora e empresário revisando juntos um caderno de anotações" width="1800" height="1005" fetchpriority="high"><span class="st"><svg viewBox="25.118 23.471 49.764 53.058" aria-hidden="true"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></span></figure>
 </div></section>
 
-<section class="dm" id="duas-metades" aria-label="Duas metades, uma direção">
-<div class="dm-v e"><svg viewBox="25.118 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></div>
-<div class="dm-v d"><svg viewBox="50 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H50Z" fill="#A88C5C"/></svg></div>
+<section class="dm" id="duas-metades" aria-label="Duas metades, uma direção"><div class="dm-in">
+<div class="dm-v e"><svg class="dm-m" viewBox="25.118 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></div>
+<div class="dm-v d"><svg class="dm-m" viewBox="50 23.471 24.882 53.058" aria-hidden="true"><path d="M50 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H50Z" fill="#A88C5C"/></svg></div>
 <p class="dm-a">Duas metades,</p>
 <p class="dm-b">uma&nbsp;direção.</p>
-</section>
+</div></section>
 
 <section class="sin" aria-labelledby="sin-t"><div class="w">
 <p class="k">Para quem é</p>
@@ -333,7 +338,7 @@ html.trava,html.trava body{overflow:hidden}
 </div></div>
 </section>
 
-<section class="met" id="como-trabalhamos"><span class="met-bn" id="metBn" aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" class="on"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#6C6558"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#232322"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#817C74"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#DCD7CF"/></svg></span><div class="w">
+<section class="met" id="como-trabalhamos"><div class="met-pin"><span class="met-bn" id="metBn" aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" class="on"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#6C6558"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#232322"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#817C74"/></svg><svg viewBox="25.118 23.471 49.764 53.058"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#DCD7CF"/></svg></span><div class="w">
 <div class="met-l"><p class="k">Como trabalhamos</p>
 <h2>Você pilota. A gente mostra a&nbsp;direção.</h2></div>
 <div class="met-r"><div class="met-st" id="metSt" aria-roledescription="carrossel" aria-label="Etapas do trabalho">
@@ -344,7 +349,7 @@ html.trava,html.trava body{overflow:hidden}
 </div>
 </div>
 <div class="met-ft"><div class="met-ix"><button class="met-dt on" aria-label="Etapa 1"></button><button class="met-dt" aria-label="Etapa 2"></button><button class="met-dt" aria-label="Etapa 3"></button><button class="met-dt" aria-label="Etapa 4"></button></div><div class="met-pg"><i id="metPg"></i></div></div>
-</div></section>
+</div></div></section>
 
 <section class="sob" id="quem-conduz"><div class="w">
 <figure class="sob-f"><img src="img/sandra.jpg" alt="Sandra Lia Morassutti, fundadora da Prosperista" width="400" height="400" loading="lazy"><span class="sob-b"></span><span class="sob-st"><svg viewBox="25.118 23.471 49.764 53.058" aria-hidden="true"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></span></figure>
@@ -387,49 +392,33 @@ mb.onclick=function(){abre(true)};document.getElementById('pnx').onclick=functio
 pn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){abre(false)})});
 addEventListener('keydown',function(e){if(e.key==='Escape')abre(false)});
 document.querySelectorAll('.lm').forEach(function(b){b.onclick=function(){var m=document.getElementById(b.getAttribute('aria-controls')),v=b.getAttribute('aria-expanded')!=='true';m.classList.toggle('on',v);b.setAttribute('aria-expanded',v);b.textContent=v?'Ler menos':'Ler mais'}});
-// duas metades: sequência automática. O primeiro gesto de rolagem para baixo, ainda na abertura, leva até a seção,
-// toca a animação (≈3,6 s, rolagem travada) e desce sozinho para o bloco seguinte. Toca uma vez por visita;
-// quem chega por um link do menu, sobe a página ou pede menos movimento vê a estrela já formada.
-(function(){var d=document.getElementById('duas-metades');if(!d||!d.animate)return;
-var ve=d.querySelector('.dm-v.e'),vd=d.querySelector('.dm-v.d'),ta=d.querySelector('.dm-a'),tb=d.querySelector('.dm-b'),prox=d.nextElementSibling;
-var feito=false,tocando=false,ult=scrollY,menu=0;
-var fim=function(){feito=true;d.classList.add('fim');[ve,vd,ta,tb].forEach(function(e){e.getAnimations().forEach(function(a){a.cancel()})})};
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){fim();return}
-function prepara(){if(feito)return;var h=ve.offsetHeight,meia=h*24.882/53.058,ini=Math.max(0,innerWidth/2-meia-21);
-ve.style.transform='translate('+(-ini)+'px,-50%)';vd.style.transform='translate('+ini+'px,-50%)';return ini}
-prepara();addEventListener('resize',prepara);
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){menu=Date.now();if(!tocando)fim()})});
-var trava=function(v){document.documentElement.classList.toggle('trava',v)},para=function(e){if(tocando)e.preventDefault()};
-addEventListener('wheel',para,{passive:false});addEventListener('touchmove',para,{passive:false});
-function toca(){tocando=true;trava(true);var ini=prepara(),texto=ta.offsetWidth?Math.min(ta.scrollWidth,innerWidth*.8):300,g=Math.min(ini,innerWidth*.31);
-scrollTo({top:d.offsetTop,behavior:'smooth'});
-setTimeout(function(){
-var dur=1900,o={duration:dur,fill:'forwards'};
-// das laterais até perto do texto (suave), depois acelera até o encaixe
-ve.animate([{transform:'translate('+(-ini)+'px,-50%)',easing:'cubic-bezier(.45,0,.35,1)'},{transform:'translate('+(-g)+'px,-50%)',offset:.72,easing:'cubic-bezier(.6,0,1,1)'},{transform:'translate(0,-50%)'}],o);
-vd.animate([{transform:'translate('+ini+'px,-50%)',easing:'cubic-bezier(.45,0,.35,1)'},{transform:'translate('+g+'px,-50%)',offset:.72,easing:'cubic-bezier(.6,0,1,1)'},{transform:'translate(0,-50%)'}],o);
-ta.animate([{opacity:1,transform:'translateY(-50%)'},{opacity:1,transform:'translateY(-50%)',offset:.6},{opacity:0,transform:'translateY(calc(-50% - 21px))',offset:.74},{opacity:0,transform:'translateY(calc(-50% - 21px))'}],o);
-tb.animate([{opacity:0,transform:'translateY(13px)'},{opacity:1,transform:'none'}],{duration:700,delay:dur+100,fill:'forwards',easing:'cubic-bezier(.2,.7,.2,1)'});
-setTimeout(function(){tocando=false;trava(false);feito=true;d.classList.add('fim');if(prox){var pt=parseFloat(getComputedStyle(prox).paddingTop)||0;scrollTo({top:prox.offsetTop-Math.max(0,97-pt),behavior:'smooth'})}},dur+1700);
-},650)}
-addEventListener('scroll',function(){var y=scrollY,desce=y>ult;ult=y;if(feito||tocando)return;
-if(Date.now()-menu<2000)return;
-var r=d.getBoundingClientRect();if(desce&&r.top>0&&r.top<innerHeight*1.2&&y>4)toca();else if(r.bottom<0)fim()},{passive:true});
-})();
-// Como trabalhamos: etapas em sequência (avança sozinho, pausa com o mouse em cima e quando sai da tela)
+// duas metades: as metades seguem a rolagem, com amortecimento, das laterais até o centro (e voltam ao subir).
+// Perto do encontro fecham num salto rápido e aparece "uma direção." Nada acontece sozinho.
+(function(){var d=document.getElementById('duas-metades');if(!d)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('on');return}
+var inn=d.querySelector('.dm-in'),cur=0,alvo=0,rod=false;
+var cl=function(v){return v<0?0:v>1?1:v},suave=function(t){return t*t*(3-2*t)};
+function mede(){var r=d.getBoundingClientRect();alvo=cl(-r.top/(d.offsetHeight-innerHeight));if(!rod){rod=true;requestAnimationFrame(passo)}}
+function passo(){cur+=(alvo-cur)*.12;if(Math.abs(alvo-cur)<.0005)cur=alvo;
+var h=d.querySelector('.dm-v').offsetHeight,meia=h*24.882/53.058,g=innerWidth<=640?innerWidth*.31:Math.min(250,innerWidth*.2);
+inn.style.setProperty('--g',g+'px');var ini=Math.max(0,innerWidth/2-g-meia-21);
+inn.style.setProperty('--x',((1-suave(cl(cur/.62)))*ini).toFixed(1)+'px');
+d.classList.toggle('on',cur>.66);
+if(cur!==alvo)requestAnimationFrame(passo);else rod=false}
+addEventListener('scroll',mede,{passive:true});addEventListener('resize',mede);mede()})();
+// Como trabalhamos: a seção fica presa na tela e as 4 etapas avançam com a rolagem (e voltam ao subir);
+// a barra acompanha a rolagem com amortecimento; os tracinhos levam direto à etapa
 (function(){
-var st=document.getElementById('metSt');if(!st)return;
+var sec=document.getElementById('como-trabalhamos'),st=document.getElementById('metSt');if(!sec||!st)return;
 var sl=[].slice.call(st.querySelectorAll('.met-sl')),dt=[].slice.call(document.querySelectorAll('.met-dt'));
 var es=[].slice.call(document.querySelectorAll('#metBn svg')),pg=document.getElementById('metPg');
-var cur=0,T=4500,tm=null,vis=false,hov=false,calmo=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var barra=function(){pg.style.transition='none';pg.style.width='0';if(calmo||!vis||hov)return;pg.offsetWidth;pg.style.transition='width '+T+'ms linear';pg.style.width='100%'};
-var agenda=function(){clearTimeout(tm);barra();if(!calmo&&vis&&!hov)tm=setTimeout(function(){vai(cur+1)},T)};
-function vai(n){var a=sl[cur];cur=(n+sl.length)%sl.length;var b=sl[cur];
-if(a!==b){a.classList.add('out');a.classList.remove('on');setTimeout(function(){a.classList.remove('out')},500);b.classList.add('on')}
-es.forEach(function(e,i){e.classList.toggle('on',i===cur)});dt.forEach(function(d,i){d.classList.toggle('on',i===cur)});agenda()}
-dt.forEach(function(d,i){d.onclick=function(){vai(i)}});
-var sec=document.getElementById('como-trabalhamos');sec.addEventListener('mouseenter',function(){hov=true;agenda()});sec.addEventListener('mouseleave',function(){hov=false;agenda()});
-if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;agenda()},{threshold:.35}).observe(st);else{vis=true;agenda()}
+var n=sl.length,idx=0,cur=0,alvo=0,rod=false,cl=function(v){return v<0?0:v>1?1:v};
+function mostra(i){if(i===idx)return;var a=sl[idx];a.classList.add('out');a.classList.remove('on');setTimeout(function(){a.classList.remove('out')},500);
+idx=i;sl[i].classList.add('on');es.forEach(function(e,j){e.classList.toggle('on',j===i)});dt.forEach(function(d,j){d.classList.toggle('on',j===i)})}
+function mede(){var r=sec.getBoundingClientRect();alvo=cl(-r.top/(sec.offsetHeight-innerHeight));mostra(Math.min(n-1,Math.floor(alvo*n*.999)));if(!rod){rod=true;requestAnimationFrame(passo)}}
+function passo(){cur+=(alvo-cur)*.15;if(Math.abs(alvo-cur)<.0005)cur=alvo;pg.style.width=(cur*100).toFixed(2)+'%';if(cur!==alvo)requestAnimationFrame(passo);else rod=false}
+dt.forEach(function(d,i){d.onclick=function(){var tot=sec.offsetHeight-innerHeight;scrollTo({top:sec.offsetTop+tot*(i+.5)/n,behavior:'smooth'})}});
+addEventListener('scroll',mede,{passive:true});addEventListener('resize',mede);mede();
 })();
 var links=document.querySelectorAll('.nav a[href^="#"]:not(.btn)');
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('at',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
