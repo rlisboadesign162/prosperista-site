@@ -133,11 +133,14 @@ p{margin:0 0 16px;text-wrap:pretty}
 .ct{padding:calc(var(--sp) * .8) 0 var(--sp)}
 .ct h2{margin-bottom:14px}
 .ct-in{max-width:720px;color:var(--tx);margin-bottom:clamp(20px,3vw,36px)}
-.ct-g{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,80px);align-items:center}
-.ct-svg{width:100%;height:auto;display:block;max-width:600px}
-.d-n{font:600 25px Manrope,sans-serif;fill:#232322}.d-s{font:400 18px Manrope,sans-serif;fill:#6C6558}
-.ct-i{padding:0 0 20px}.ct-i h3{font-size:21px;font-weight:600;letter-spacing:-.01em;margin-bottom:4px}.ct-i h3 span{font-weight:400;color:var(--cet)}
-.ct-i p{margin:0;color:var(--tx)}
+.ct-g{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,96px);align-items:center}
+.ct-svg{width:100%;height:auto;display:block;max-width:340px;margin:0 auto}
+.ct-i{display:grid;grid-template-columns:48px 1fr;gap:0 20px;padding:0 0 clamp(22px,2.4vw,32px)}
+.ct-i:last-child{padding-bottom:0}
+.ct-i .mi svg{width:48px;height:48px;display:block}
+.ct-i h3{font-size:21px;font-weight:600;letter-spacing:-.01em;margin:0}
+.ct-i .cv{display:block;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cet);margin:3px 0 10px}
+.ct-i p{margin:0;color:var(--tx);max-width:520px}
 .ct-f{margin-top:clamp(24px,3.5vw,44px);padding-top:26px;border-top:1px solid var(--ce);font-size:clamp(20px,2.2vw,26px);font-weight:300;line-height:1.4;max-width:820px;letter-spacing:-.01em}
 .ct-f b{font-weight:500;color:var(--cet)}
 /* quem somos */
@@ -219,7 +222,7 @@ p{margin:0 0 16px;text-wrap:pretty}
  .qs-t{padding:56px var(--g) 28px}.qs-b{padding:28px var(--g) var(--sp)}
  .dm{font-size:18px}
  .pal .pat{width:100%;opacity:.16}
- .d-n{font-size:30px}.d-s{font-size:22px}
+
  .ft-b{flex-direction:column}
  .lk,.ft a,.pn nav a{min-height:44px}
  .ft-g{grid-template-columns:1fr 1fr}.ft-g>div:first-child{grid-column:1/-1}
@@ -318,22 +321,12 @@ p{margin:0 0 16px;text-wrap:pretty}
 <h2>Compreender, desenvolver e&nbsp;evoluir.</h2>
 <p class="ct-in">Nossa abordagem combina análise, planejamento e acompanhamento para desenvolver a capacidade de gestão das empresas, incorporando práticas de governança e critérios de&nbsp;sustentabilidade.</p>
 <div class="ct-g">
-<div class="ct-d"><svg class="ct-svg" viewBox="0 0 640 520" role="img" aria-label="Ciclo de três pilares: Clareza (medir), Capacidade (desenvolver) e Evolução (acompanhar), que se repete; abaixo, Visão (inspirar), que amplia o horizonte.">
-<defs><marker id="sp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1L9 5L1 9z" fill="#A88C5C"/></marker></defs>
-<circle cx="320" cy="235" r="125" fill="none" stroke="#DCD7CF" stroke-width="1"/>
-<path d="M362.8 117.5A125 125 0 0 1 443.1 256.7" fill="none" stroke="#A88C5C" stroke-width="2" marker-end="url(#sp)"/><path d="M400.3 330.8A125 125 0 0 1 239.7 330.8" fill="none" stroke="#A88C5C" stroke-width="2" marker-end="url(#sp)"/><path d="M196.9 256.7A125 125 0 0 1 277.2 117.5" fill="none" stroke="#A88C5C" stroke-width="2" marker-end="url(#sp)"/>
-<circle cx="320.0" cy="110.0" r="7" fill="#A88C5C"/><circle cx="428.3" cy="297.5" r="7" fill="#A88C5C"/><circle cx="211.7" cy="297.5" r="7" fill="#A88C5C"/>
-<text x="320" y="62" text-anchor="middle" class="d-n">Clareza</text><text x="320" y="86" text-anchor="middle" class="d-s">Medir</text>
-<text x="462" y="296" class="d-n">Capacidade</text><text x="462" y="320" class="d-s">Desenvolver</text>
-<text x="178" y="296" text-anchor="end" class="d-n">Evolução</text><text x="178" y="320" text-anchor="end" class="d-s">Acompanhar</text>
-<path d="M40 452Q320 372 600 452" fill="none" stroke="#A88C5C" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
-<text x="320" y="494" text-anchor="middle" class="d-n">Visão <tspan class="d-s">| Inspirar</tspan></text>
-</svg></div>
+<div class="ct-d"><svg class="ct-svg" viewBox="0 0 400 440" role="img" aria-label="Ciclo de três etapas que se repete, com um arco tracejado abaixo representando a visão estratégica."><defs><marker id="sp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1L9 5L1 9z" fill="#A88C5C"/></marker></defs><circle cx="200" cy="175" r="125" fill="none" stroke="#DCD7CF" stroke-width="1"/><path d="M242.8 57.5A125 125 0 0 1 323.1 196.7" fill="none" stroke="#A88C5C" stroke-width="2" marker-end="url(#sp)"/><path d="M280.3 270.8A125 125 0 0 1 119.7 270.8" fill="none" stroke="#A88C5C" stroke-width="2" marker-end="url(#sp)"/><path d="M76.9 196.7A125 125 0 0 1 157.2 57.5" fill="none" stroke="#A88C5C" stroke-width="2" marker-end="url(#sp)"/><circle cx="200.0" cy="50.0" r="9" fill="#A88C5C"/><circle cx="308.3" cy="237.5" r="9" fill="#A88C5C"/><circle cx="91.7" cy="237.5" r="9" fill="#A88C5C"/><path d="M30 400Q200 318 370 400" fill="none" stroke="#A88C5C" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/></svg></div>
 <div class="ct-l">
-<div class="ct-i"><h3>Clareza <span>| Medir</span></h3><p>Estabelecer um ponto de partida, utilizando uma matriz de maturidade para identificar potencialidades, lacunas e prioridades.</p></div>
-<div class="ct-i"><h3>Capacidade <span>| Desenvolver</span></h3><p>Traduzir as prioridades identificadas em um plano de evolução, com objetivos, iniciativas e responsabilidades definidos.</p></div>
-<div class="ct-i"><h3>Evolução <span>| Acompanhar</span></h3><p>Monitorar indicadores, reavaliar a maturidade e ajustar o plano de ação a partir dos resultados&nbsp;alcançados.</p></div>
-<div class="ct-i"><h3>Visão <span>| Inspirar</span></h3><p>Incorporar novas referências, questionar premissas e explorar perspectivas que ampliem o horizonte estratégico da&nbsp;empresa.</p></div>
+<div class="ct-i"><span class="mi"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="14" fill="none" stroke="#DCD7CF" stroke-width="1.5"/><circle cx="22" cy="8" r="4.6" fill="#A88C5C"/><circle cx="34.1" cy="29" r="2.6" fill="#F4F1EC" stroke="#A88C5C" stroke-width="1.3"/><circle cx="9.9" cy="29" r="2.6" fill="#F4F1EC" stroke="#A88C5C" stroke-width="1.3"/></svg></span><div><h3>Clareza</h3><span class="cv">Medir</span><p>Estabelecer um ponto de partida, utilizando uma matriz de maturidade para identificar potencialidades, lacunas e prioridades.</p></div></div>
+<div class="ct-i"><span class="mi"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="14" fill="none" stroke="#DCD7CF" stroke-width="1.5"/><circle cx="22" cy="8" r="2.6" fill="#F4F1EC" stroke="#A88C5C" stroke-width="1.3"/><circle cx="34.1" cy="29" r="4.6" fill="#A88C5C"/><circle cx="9.9" cy="29" r="2.6" fill="#F4F1EC" stroke="#A88C5C" stroke-width="1.3"/></svg></span><div><h3>Capacidade</h3><span class="cv">Desenvolver</span><p>Traduzir as prioridades identificadas em um plano de evolução, com objetivos, iniciativas e responsabilidades definidos.</p></div></div>
+<div class="ct-i"><span class="mi"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="14" fill="none" stroke="#DCD7CF" stroke-width="1.5"/><circle cx="22" cy="8" r="2.6" fill="#F4F1EC" stroke="#A88C5C" stroke-width="1.3"/><circle cx="34.1" cy="29" r="2.6" fill="#F4F1EC" stroke="#A88C5C" stroke-width="1.3"/><circle cx="9.9" cy="29" r="4.6" fill="#A88C5C"/></svg></span><div><h3>Evolução</h3><span class="cv">Acompanhar</span><p>Monitorar indicadores, reavaliar a maturidade e ajustar o plano de ação a partir dos resultados&nbsp;alcançados.</p></div></div>
+<div class="ct-i"><span class="mi"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M4 31Q22 12 40 31" fill="none" stroke="#A88C5C" stroke-width="2" stroke-dasharray="1.5 5" stroke-linecap="round"/></svg></span><div><h3>Visão</h3><span class="cv">Inspirar</span><p>Incorporar novas referências, questionar premissas e explorar perspectivas que ampliem o horizonte estratégico da&nbsp;empresa.</p></div></div>
 </div>
 </div>
 <p class="ct-f">A prosperidade é construída com <b>clareza de direção, qualidade nas decisões e consistência na&nbsp;execução.</b></p>
