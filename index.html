@@ -142,16 +142,20 @@ p{margin:0 0 16px;text-wrap:pretty}
 .ct-f b{font-weight:500;color:var(--cet)}
 /* quem somos */
 .qs{--L:max(var(--g),calc((100vw - var(--mw)) / 2 + var(--g)));--C:calc(min(100vw,var(--mw)) - 2 * var(--g));position:relative;background:var(--tp);color:var(--ow);display:grid;grid-template-columns:calc(var(--L) + var(--C) * 5 / 12 - 20px) 1fr;grid-template-rows:auto 1fr;grid-template-areas:"f t" "f b"}
-.qs-f{grid-area:f;margin:0;position:relative;background:#5b5751}
-.qs-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.qs-f{grid-area:f;margin:0;position:relative}
+.qs-p{position:sticky;top:calc(var(--hd) + 20px);height:min(calc(100vh - var(--hd) - 40px),660px);height:min(calc(100svh - var(--hd) - 40px),660px);min-height:420px;background:#5b5751}
+.qs-p img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .qs-st{position:absolute;right:-27px;top:50%;width:55px;margin-top:-28px;z-index:2}
 .qs-st svg{width:100%;display:block}
 .qs-t{grid-area:t;padding:var(--sp) var(--L) 0 clamp(40px,6vw,96px)}
 .qs-b{grid-area:b;padding:18px var(--L) var(--sp) clamp(40px,6vw,96px)}
 .qs .k{color:#F0E4C8}
-.qs h2{color:var(--ow);font-size:clamp(30px,3.8vw,48px);line-height:1.1}
-.qs .nm{font-size:18px;font-weight:500;color:var(--ow);margin:0 0 20px}.qs .nm span{font-weight:400;color:#ECE7DE}
-.qs-b p{color:#ECE7DE;max-width:660px;line-height:1.7}
+.qs h2{color:var(--ow);font-size:clamp(28px,3vw,40px);line-height:1.12}
+.qs .nm{font-size:16px;font-weight:600;color:var(--ow);margin:6px 0 24px;padding-bottom:20px;border-bottom:1px solid rgba(240,228,200,.3)}.qs .nm span{font-weight:400;color:#ECE7DE}
+.qs-b p{color:#ECE7DE;max-width:600px;line-height:1.7;margin-bottom:18px}
+.qs-b p.ld{font-size:19px;font-weight:300;line-height:1.55;color:var(--ow);margin-bottom:24px}
+@media(min-width:1600px){.qs-p{width:640px;margin-left:auto}}
+.qs-b p.fm{font-size:15px;margin-top:30px;padding-top:22px;border-top:1px solid rgba(240,228,200,.3)}
 .qs-b .lk{color:var(--ow);display:inline-flex;align-items:center;gap:10px;margin-top:6px}
 .qs-b .lk:hover{color:var(--ch)}
 /* contato */
@@ -211,8 +215,9 @@ p{margin:0 0 16px;text-wrap:pretty}
  .pq-g{gap:0}
  .sv-f{max-width:460px}
  .qs{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"t" "f" "b"}
- .qs-f{aspect-ratio:1/1;max-height:520px}
+ .qs-p{position:relative;top:auto;height:auto;min-height:0;aspect-ratio:1/1}
  .qs-st{right:auto;left:var(--g);top:auto;bottom:-22px;margin-top:0;width:44px}
+ .qs-b p.ld{font-size:17px}
  .qs-t{padding:var(--sp) var(--g) 28px}.qs-b{padding:28px var(--g) var(--sp)}
  .dm{font-size:18px}
  .pal .pat{width:100%;opacity:.16}
@@ -337,15 +342,15 @@ p{margin:0 0 16px;text-wrap:pretty}
 </div></section>
 
 <section class="qs" id="quem-somos">
-<div class="qs-t"><p class="k">Quem somos</p><h2>Experiência a serviço da&nbsp;gestão.</h2></div>
-<figure class="qs-f"><img src="img/sandra.jpg" alt="Sandra Morassutti, fundadora da Prosperista" width="400" height="400"><span class="qs-st" aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" aria-hidden="true"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></span></figure>
+<div class="qs-t"><p class="k">Quem somos</p><h2>Experiência a&nbsp;serviço da&nbsp;gestão.</h2></div>
+<figure class="qs-f"><div class="qs-p"><img src="img/sandra.jpg" alt="Sandra Morassutti, fundadora da Prosperista" width="400" height="400"><span class="qs-st" aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" aria-hidden="true"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></span></div></figure>
 <div class="qs-b">
 <p class="nm">Sandra Morassutti <span>| Fundadora da&nbsp;Prosperista</span></p>
-<p>Acredito que as pequenas e médias empresas são uma das grandes forças da economia brasileira. Geram empregos, criam oportunidades e movimentam comunidades. Fortalecê-las é contribuir para uma prosperidade que se estende para além dos próprios negócios.</p>
+<p class="ld">Acredito que as pequenas e médias empresas são uma das grandes forças da economia brasileira. Geram empregos, criam oportunidades e movimentam comunidades. Fortalecê-las é contribuir para uma prosperidade que se estende para além dos próprios negócios.</p>
 <p>Foi dessa convicção, aliada a mais de 35 anos de trajetória profissional, que nasceu a Prosperista. No mercado financeiro, desenvolvi produtos, liderei projetos complexos e trabalhei na transformação de estratégias em resultados. Minha trajetória internacional, que incluiu viver em quatro países e empreender nos Estados Unidos, ampliou meu repertório, minha compreensão de diferentes ambientes de negócios e minha percepção dos desafios de quem empreende.</p>
 <p>Essas experiências moldaram minha forma de pensar e trabalhar: compreender antes de propor, questionar antes de concluir e buscar soluções que façam sentido na prática.</p>
 <p>Hoje, coloco esse repertório a serviço de empresários que desejam fortalecer a gestão, tomar melhores decisões e preparar seus negócios para o futuro.</p>
-<p>Sou formada em Administração de Empresas pela FGV, com MBA em Mercados de Capitais pelo IBMEC e extensão executiva em Gestão Empresarial pela SDA Bocconi. Minha formação complementar inclui Sustentabilidade: Oportunidades e Estratégias para a Indústria (MIT Professional Education), Formação para Conselheiros (Insper) e Inovação para Sustentabilidade (Instituto Ethos).</p>
+<p class="fm">Sou formada em Administração de Empresas pela FGV, com MBA em Mercados de Capitais pelo IBMEC e extensão executiva em Gestão Empresarial pela SDA Bocconi. Minha formação complementar inclui Sustentabilidade: Oportunidades e Estratégias para a Indústria (MIT Professional Education), Formação para Conselheiros (Insper) e Inovação para Sustentabilidade (Instituto Ethos).</p>
 <a class="lk ico" href="https://www.linkedin.com/in/sandra-lia-morassutti/" target="_blank" rel="noopener"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><clipPath id="m-linkedin-1"><rect width="12" height="24"/></clipPath></defs><path d="M11 3.5H3.5V20.5H20.5V3.5H13ZM8 10.5V17M11.5 17V10.5M11.5 13.5A2.5 2.5 0 0 1 16.5 13.5V17" fill="none" stroke="#A88C5C" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"/><path d="M7 6.5H9V8.5H7Z" fill="#A88C5C"/><g clip-path="url(#m-linkedin-1)"><path d="M11 3.5H3.5V20.5H20.5V3.5H13ZM8 10.5V17M11.5 17V10.5M11.5 13.5A2.5 2.5 0 0 1 16.5 13.5V17" fill="none" stroke="#C2A675" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"/><path d="M7 6.5H9V8.5H7Z" fill="#C2A675"/></g></svg>LinkedIn pessoal</a>
 </div>
 </section>
