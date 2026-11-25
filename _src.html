@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ow:#F4F1EC;--gg:#DCD7CF;--cq:#6F6A62;--tp:#6C6558;--gr:#232322;--ch:#C2A675;--ce:#A88C5C;--cet:#7F6636;--cel:#9A7F4E;--tx:#4a4845;--rule:#DCD7CF;--g:clamp(20px,5vw,64px);--hd:84px;--t13:13px;--t16:16px;--t21:21px;--sp:clamp(44px,5.5vw,80px);--bnd:72px;--gp:clamp(44px,6.3vw,90px);--qt:clamp(72px,9vw,128px);--mw:1240px}
+:root{--ow:#F4F1EC;--gg:#DCD7CF;--cq:#6F6A62;--tp:#6C6558;--gr:#232322;--ch:#C2A675;--ce:#A88C5C;--cet:#7F6636;--cel:#9A7F4E;--tx:#4a4845;--rule:#DCD7CF;--g:clamp(20px,5vw,64px);--hd:84px;--t13:13px;--t16:16px;--t21:21px;--sp:clamp(44px,5.5vw,80px);--bnd:72px;--gp:clamp(44px,6.3vw,90px);--qt:clamp(150px,24vh,230px);--qf:clamp(56px,9vh,90px);--mw:1240px}
 @media(min-width:1600px){:root{--mw:1360px}}
 @media(max-width:1100px){:root{--hd:72px}}
 *{box-sizing:border-box}
@@ -142,20 +142,19 @@ p{margin:0 0 16px;text-wrap:pretty}
 .ct-f b{font-weight:500;color:var(--cet)}
 /* quem somos */
 .qs{--L:max(var(--g),calc((100vw - var(--mw)) / 2 + var(--g)));--C:calc(min(100vw,var(--mw)) - 2 * var(--g));position:relative;background:var(--tp);color:var(--ow);display:grid;grid-template-columns:calc(var(--L) + var(--C) * 5 / 12 - 20px) 1fr;grid-template-rows:auto 1fr;grid-template-areas:"f t" "f b"}
-.qs-f{grid-area:f;margin:0;position:relative;padding-top:var(--qt)}
-.qs-p{position:sticky;top:calc(var(--hd) + 20px);height:min(calc(100vh - var(--hd) - var(--qt) - 20px),660px);height:min(calc(100svh - var(--hd) - var(--qt) - 20px),660px);min-height:420px;background:#5b5751}
+.qs-f{grid-area:f;margin:0;position:relative;padding-top:var(--qf)}
+.qs-p{position:sticky;top:calc(var(--hd) + 20px);height:min(calc(100vh - var(--hd) - var(--qf) - 20px),660px);height:min(calc(100svh - var(--hd) - var(--qf) - 20px),660px);min-height:420px;background:#5b5751}
 .qs-p img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .qs-st{position:absolute;right:-27px;top:50%;width:55px;margin-top:-28px;z-index:2}
 .qs-st svg{width:100%;display:block}
-.qs-t{grid-area:t;padding:var(--qt) var(--L) 0 clamp(40px,6vw,96px)}
+.qs-t{grid-area:t;padding:var(--qt) var(--L) 30px clamp(40px,6vw,96px)}
 .qs-b{grid-area:b;padding:18px var(--L) var(--sp) clamp(40px,6vw,96px)}
 .qs .k{color:#F0E4C8}
 .qs h2{color:var(--ow);font-size:clamp(28px,3vw,40px);line-height:1.12}
-.qs .nm{font-size:16px;font-weight:600;color:var(--ow);margin:6px 0 24px;padding-bottom:20px;border-bottom:1px solid rgba(240,228,200,.3)}.qs .nm span{font-weight:400;color:#ECE7DE}
-.qs-b p{color:#ECE7DE;max-width:600px;line-height:1.7;margin-bottom:18px}
-.qs-b p.ld{font-size:19px;font-weight:300;line-height:1.55;color:var(--ow);margin-bottom:24px}
+.qs .nm{font-size:16px;font-weight:600;color:var(--ow);margin:8px 0 0;padding:0}.qs .nm span{font-weight:400;color:#ECE7DE}
+.qs-b p{color:#ECE7DE;font-size:16px;font-weight:400;max-width:560px;line-height:1.8;margin:0 0 24px}
+.qs-b p.nm{color:var(--ow);font-weight:600;margin:0 0 30px;padding:0 0 22px;border-bottom:1px solid rgba(240,228,200,.3)}
 @media(min-width:1600px){.qs-p{width:640px;margin-left:auto}}
-.qs-b p.fm{font-size:15px;margin-top:44px;padding-top:34px;border-top:1px solid rgba(240,228,200,.3)}
 .qs-b .lk{color:var(--ow);display:inline-flex;align-items:center;gap:10px;margin-top:6px}
 .qs-b .lk:hover{color:var(--ch)}
 /* contato */
@@ -217,8 +216,7 @@ p{margin:0 0 16px;text-wrap:pretty}
  .qs{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"t" "f" "b"}
  .qs-f{padding-top:0}.qs-p{position:relative;top:auto;height:auto;min-height:0;aspect-ratio:1/1}
  .qs-st{right:auto;left:var(--g);top:auto;bottom:-22px;margin-top:0;width:44px}
- .qs-b p.ld{font-size:17px}
- .qs-t{padding:var(--sp) var(--g) 28px}.qs-b{padding:28px var(--g) var(--sp)}
+ .qs-t{padding:56px var(--g) 28px}.qs-b{padding:28px var(--g) var(--sp)}
  .dm{font-size:18px}
  .pal .pat{width:100%;opacity:.16}
  .d-n{font-size:30px}.d-s{font-size:22px}
@@ -346,11 +344,11 @@ p{margin:0 0 16px;text-wrap:pretty}
 <figure class="qs-f"><div class="qs-p"><img src="img/sandra.jpg" alt="Sandra Morassutti, fundadora da Prosperista" width="400" height="400"><span class="qs-st" aria-hidden="true">{{ESTRELA}}</span></div></figure>
 <div class="qs-b">
 <p class="nm">Sandra Morassutti <span>| Fundadora da&nbsp;Prosperista</span></p>
-<p class="ld">Acredito que as pequenas e médias empresas são uma das grandes forças da economia brasileira. Geram empregos, criam oportunidades e movimentam comunidades. Fortalecê-las é contribuir para uma prosperidade que se estende para além dos próprios negócios.</p>
+<p>Acredito que as pequenas e médias empresas são uma das grandes forças da economia brasileira. Geram empregos, criam oportunidades e movimentam comunidades. Fortalecê-las é contribuir para uma prosperidade que se estende para além dos próprios negócios.</p>
 <p>Foi dessa convicção, aliada a mais de 35 anos de trajetória profissional, que nasceu a Prosperista. No mercado financeiro, desenvolvi produtos, liderei projetos complexos e trabalhei na transformação de estratégias em resultados. Minha trajetória internacional, que incluiu viver em quatro países e empreender nos Estados Unidos, ampliou meu repertório, minha compreensão de diferentes ambientes de negócios e minha percepção dos desafios de quem empreende.</p>
 <p>Essas experiências moldaram minha forma de pensar e trabalhar: compreender antes de propor, questionar antes de concluir e buscar soluções que façam sentido na prática.</p>
 <p>Hoje, coloco esse repertório a serviço de empresários que desejam fortalecer a gestão, tomar melhores decisões e preparar seus negócios para o futuro.</p>
-<p class="fm">Sou formada em Administração de Empresas pela FGV, com MBA em Mercados de Capitais pelo IBMEC e extensão executiva em Gestão Empresarial pela SDA Bocconi. Minha formação complementar inclui Sustentabilidade: Oportunidades e Estratégias para a Indústria (MIT Professional Education), Formação para Conselheiros (Insper) e Inovação para Sustentabilidade (Instituto Ethos).</p>
+<p>Sou formada em Administração de Empresas pela FGV, com MBA em Mercados de Capitais pelo IBMEC e extensão executiva em Gestão Empresarial pela SDA Bocconi. Minha formação complementar inclui Sustentabilidade: Oportunidades e Estratégias para a Indústria (MIT Professional Education), Formação para Conselheiros (Insper) e Inovação para Sustentabilidade (Instituto Ethos).</p>
 <a class="lk ico" href="{{LINKEDIN}}">{{ICO:linkedin:champanhe}}LinkedIn pessoal</a>
 </div>
 </section>
