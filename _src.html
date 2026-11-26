@@ -78,7 +78,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 .pn nav{margin:auto 0;display:flex;flex-direction:column}
 .pn nav a{font-size:28px;font-weight:300;letter-spacing:-.01em;text-decoration:none;padding:14px 0;border-bottom:1px solid var(--rule)}
 .pn .btn{align-self:flex-start}
-@media(max-width:1100px){.nav{display:none}.mb{display:inline-flex}}
+@media(max-width:1100px){.nav{display:none}.mb{display:inline-flex}.hd .logo{width:clamp(168px,54vw,250px);padding:12px 0;box-sizing:content-box}.pn-t .logo{width:clamp(168px,54vw,214px)}}
 /* início */
 .hero{overflow:hidden;padding:calc(var(--hd) + 24px) 0 24px;display:flex;align-items:center;min-height:calc(100vh - var(--bnd));min-height:calc(100svh - var(--bnd))}
 .hero .w{width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
@@ -110,7 +110,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 .sv{padding:calc(var(--gp) / 2) 0 var(--sp)}
 .sv h2{max-width:760px;margin-bottom:14px}
 .sv-tt{display:flex;align-items:center;gap:clamp(24px,3.5vw,56px);margin-bottom:14px}.sv-tt h2{margin:0;flex:none}.sv-tt i{flex:1;height:1px;background:var(--ce);opacity:.55}
-@media(max-width:860px){.sv-tt i{display:none}}
+@media(max-width:860px){.sv-tt{display:block}.sv-tt i{display:none}.sv-tt h2{overflow-wrap:break-word}.sv-tt h2 br{display:none}}
 .sv-in{max-width:700px;color:var(--tx);margin-bottom:clamp(8px,2vw,24px)}
 .sv-i{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,72px);align-items:center;border-top:0;padding:clamp(22px,2.8vw,34px) 0}
 .sv-i.rev{grid-template-columns:5fr 7fr}.sv-i.rev .sv-f{order:-1}
@@ -224,7 +224,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 .pp-c .dt{margin-top:28px;padding-top:18px;border-top:1px solid var(--rule);font-size:var(--t13);color:var(--cq)}
 /* celular: uma coluna, altura pelo conteúdo */
 @media(max-width:860px){
- .d-n{font-size:34px}.d-s{font-size:26px}
+ .d-n{font-size:38px}.d-s{font-size:31px}
  .hero .w,.pq-g,.sv-i,.sv-i.rev,.ct-g,.ag-w{grid-template-columns:1fr}
  .sv-i.rev .sv-f{order:0}
  #acompanhamento .sv-f{min-height:0;aspect-ratio:4/3}
@@ -296,7 +296,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 
 <section class="sv" id="servicos"><div class="w">
 <p class="k">Nossos Serviços</p>
-<div class="sv-tt"><h2>Diferentes desafios,<br>diferentes formas de&nbsp;atuação.</h2><i aria-hidden="true"></i></div>
+<div class="sv-tt"><h2>Diferentes desafios, <br>diferentes formas de&nbsp;atuação.</h2><i aria-hidden="true"></i></div>
 <p class="sv-in">Cada empresa tem sua própria história, seus desafios e suas ambições. A Prosperista combina o entendimento dessa realidade com uma perspectiva externa e&nbsp;independente.</p>
 
 <article class="sv-i rev" id="diagnostico"><div class="sv-t">
