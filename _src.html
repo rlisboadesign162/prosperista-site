@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ow:#F4F1EC;--gg:#DCD7CF;--cq:#6F6A62;--tp:#6C6558;--gr:#232322;--ch:#C2A675;--ce:#A88C5C;--cet:#7F6636;--cel:#9A7F4E;--tx:#4a4845;--rule:#DCD7CF;--g:clamp(20px,5vw,64px);--hd:84px;--t13:13px;--t16:16px;--t21:21px;--sp:clamp(44px,5.5vw,80px);--bnd:72px;--gp:clamp(44px,6.3vw,90px);--qt:clamp(150px,24vh,230px);--qf:clamp(56px,9vh,90px);--mw:1240px}
+:root{--ow:#F4F1EC;--gg:#DCD7CF;--cq:#6F6A62;--tp:#6C6558;--gr:#232322;--ch:#C2A675;--ce:#A88C5C;--cet:#7F6636;--cel:#9A7F4E;--tx:#4a4845;--rule:#DCD7CF;--g:clamp(20px,5vw,64px);--hd:84px;--t13:13px;--t16:16px;--t21:21px;--sp:clamp(44px,5.5vw,80px);--bnd:52px;--gp:clamp(44px,6.3vw,90px);--qt:clamp(150px,24vh,230px);--qf:clamp(56px,9vh,90px);--mw:1240px}
 @media(min-width:1600px){:root{--mw:1360px}}
 @media(max-width:1100px){:root{--hd:72px}}
 *{box-sizing:border-box}
@@ -91,8 +91,8 @@ p{margin:0 0 16px;text-wrap:pretty}
 .h-st{position:absolute;right:-15px;bottom:-15px;width:29px}
 .h-st svg,.dm svg{display:block;width:100%;height:auto}
 /* duas metades, uma direção: faixa estática */
-.dm{background:var(--gg);height:var(--bnd);display:flex;align-items:center;justify-content:center;gap:14px;padding:0 var(--g);font-size:var(--t21);font-weight:500;letter-spacing:-.01em;text-align:center}
-.dm svg{width:26px;flex:none}
+.dm{background:var(--gg);height:var(--bnd);display:flex;align-items:center;justify-content:center;gap:14px;padding:0 var(--g);font-size:17px;font-weight:500;letter-spacing:-.01em;text-align:center}
+.dm svg{width:19px;flex:none}
 /* para quem é */
 .pq{padding:var(--sp) 0 calc(var(--gp) / 2)}
 .pq h2{max-width:720px;margin-bottom:clamp(24px,3vw,40px)}
@@ -217,7 +217,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 .pp-t .k{margin:0 0 12px;display:flex;align-items:center;gap:12px}.pp-t .k svg{width:14px;height:auto}
 .pp-t h2{margin:0;font-size:34px;line-height:1.1}
 .pp-x{flex:none;background:none;border:0;font:600 14px Manrope,sans-serif;color:var(--gr);cursor:pointer;padding:12px 4px;border-bottom:1px solid var(--ch)}
-.pp-c{overflow-y:auto;padding:26px clamp(24px,5vw,56px) clamp(32px,5vw,52px);font-size:var(--t16);line-height:1.7}
+.pp-c:focus{outline:none}.pp-c{overflow-y:auto;padding:26px clamp(24px,5vw,56px) clamp(32px,5vw,52px);font-size:var(--t16);line-height:1.7}
 .pp-c h3{margin:28px 0 8px;font-size:var(--t13);letter-spacing:.2em;text-transform:uppercase;color:var(--cet);font-weight:600}
 .pp-c h3:first-of-type{margin-top:6px}
 .pp-c p,.pp-c ul{margin:0 0 12px}.pp-c ul{padding-left:18px}
@@ -238,7 +238,7 @@ p{margin:0 0 16px;text-wrap:pretty}
  .qs-f{padding-top:0}.qs-p{position:relative;top:auto;height:auto;min-height:0;aspect-ratio:1/1}
  .qs-st{right:auto;left:var(--g);top:auto;bottom:-22px;margin-top:0;width:44px}
  .qs-t{padding:56px var(--g) 28px}.qs-b{padding:28px var(--g) var(--sp)}
- .dm{font-size:18px}
+ .dm{font-size:16px}
  .pal .pat{width:100%;opacity:.16}
 
  .ft-b{flex-direction:column}
@@ -393,22 +393,26 @@ p{margin:0 0 16px;text-wrap:pretty}
 
 <dialog class="pp" id="pp" aria-labelledby="pp-h">
 <div class="pp-t"><div><p class="k">{{ESTRELA}}Prosperista</p><h2 id="pp-h">Política de privacidade</h2></div><button class="pp-x" id="ppx">Fechar ✕</button></div>
-<div class="pp-c">
-<h3>Quem somos</h3>
-<p>Esta política explica como a Prosperista Consultoria trata os dados pessoais de quem visita este site ou entra em contato conosco, de acordo com a Lei Geral de Proteção de Dados (Lei nº&nbsp;13.709/2018).</p>
-<h3>Dados que coletamos</h3>
-<p>O site não tem formulários de cadastro. Só recebemos dados que você decide nos&nbsp;enviar:</p>
-<ul><li>ao nos escrever por e&#8209;mail para conversar ou agendar uma reunião: seu nome, seu e&#8209;mail, o telefone (se você informar), o dia e a hora de sua preferência e o que mais você escrever na&nbsp;mensagem.</li></ul>
+<div class="pp-c" tabindex="-1" autofocus>
+<p>Esta política explica, em linguagem simples, como a Prosperista Consultoria trata os dados pessoais de quem visita este site ou entra em contato conosco, de acordo com a Lei Geral de Proteção de Dados (LGPD, Lei nº&nbsp;13.709/2018).</p>
+<h3>Quem é o responsável</h3>
+<p>A responsável pelos seus dados é a Prosperista Consultoria, com atendimento em todo o Brasil. Para qualquer assunto sobre esta política, escreva para <a class="lk" href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+<h3>O que coletamos</h3>
+<p>O site não tem formulários nem cadastro. Só recebemos os dados que você decide nos enviar ao escrever por e&#8209;mail: seu nome, seu e&#8209;mail, o telefone (se você informar), o dia e a hora de sua preferência para a conversa e o que mais você escrever na&nbsp;mensagem.</p>
+<p>Ao visitar o site, o serviço de hospedagem pode registrar dados técnicos de acesso, como o endereço IP e o tipo de&nbsp;navegador.</p>
 <h3>Para que usamos</h3>
-<p>Usamos esses dados só para responder ao seu contato, organizar reuniões e prestar os serviços combinados. Não vendemos, não alugamos e não usamos seus dados para&nbsp;publicidade.</p>
-<h3>Com quem compartilhamos</h3>
-<p>Alguns serviços de terceiros ajudam a manter o site e o atendimento funcionando: a hospedagem do site, o serviço de e&#8209;mail e as fontes tipográficas carregadas pela página. Eles podem registrar dados técnicos, como endereço IP e navegador, conforme as políticas de privacidade de cada&nbsp;um.</p>
+<p>Usamos esses dados só para responder ao seu contato, combinar e realizar a conversa inicial e, se você contratar, prestar o serviço combinado. Não vendemos, não alugamos e não usamos seus dados para&nbsp;publicidade.</p>
 <h3>Cookies</h3>
-<p>Este site não usa cookies de rastreamento nem ferramentas de&nbsp;publicidade.</p>
+<p>Este site não usa cookies de rastreamento, de publicidade nem de medição de audiência. Se isso mudar, avisaremos antes e só ativaremos com a sua&nbsp;autorização.</p>
+<h3>Com quem compartilhamos</h3>
+<p>Alguns serviços de terceiros fazem parte do funcionamento do site e do atendimento: a hospedagem do site, o serviço de e&#8209;mail pelo qual conversamos e as fontes tipográficas do Google, carregadas pela página. Eles podem registrar dados técnicos, conforme as políticas de cada um. Ao clicar nos links para o LinkedIn, você passa a ser regido pela política dessa&nbsp;rede.</p>
+<p>Fora isso, só compartilhamos dados se a lei&nbsp;exigir.</p>
 <h3>Por quanto tempo guardamos</h3>
 <p>Pelo tempo necessário para atender ao seu contato e cumprir obrigações legais. Depois disso, os dados são&nbsp;apagados.</p>
 <h3>Seus direitos</h3>
-<p>Você pode pedir a qualquer momento acesso, correção ou exclusão dos seus dados, ou tirar dúvidas sobre esta política, pelo e&#8209;mail <a class="lk" href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+<p>Você pode pedir a qualquer momento, pelo e&#8209;mail acima: a confirmação de que tratamos seus dados, o acesso a eles, a correção de dados incorretos, a eliminação dos dados, a informação sobre com quem os compartilhamos e a revogação de uma autorização que tenha dado. Respondemos em até 15&nbsp;dias.</p>
+<h3>Mudanças nesta política</h3>
+<p>Se esta política mudar, a nova versão ficará nesta mesma página, com a data de atualização.</p>
 <p class="dt">Última atualização: novembro de&nbsp;2026.</p>
 </div>
 </dialog>
@@ -425,7 +429,9 @@ addEventListener('keydown',function(e){if(e.key==='Escape')abre(false)});
 var pp=document.getElementById('pp');
 document.getElementById('ppa').onclick=function(){pp.showModal();document.body.style.overflow='hidden'};
 document.getElementById('ppx').onclick=function(){pp.close()};
-pp.addEventListener('close',function(){document.body.style.overflow=''});
+pp.addEventListener('close',function(){document.body.style.overflow='';if(location.hash==='#privacidade')history.replaceState(null,'',location.pathname+location.search)});
+function abrePolitica(){if(!pp.open){pp.showModal();document.body.style.overflow='hidden'}}
+if(location.hash==='#privacidade')abrePolitica();addEventListener('hashchange',function(){if(location.hash==='#privacidade')abrePolitica()});
 pp.addEventListener('click',function(e){if(e.target===pp)pp.close()});
 /* item do menu da seção em que a pessoa está (sem animação) */
 var map={'para-quem-e':'para-quem-e','servicos':'servicos','palestra':'servicos','como-trabalhamos':'como-trabalhamos','quem-somos':'quem-somos'};
