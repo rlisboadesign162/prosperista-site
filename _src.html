@@ -113,9 +113,12 @@ p{margin:0 0 16px;text-wrap:pretty}
 .sv-i{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,72px);align-items:center;border-top:1px solid var(--rule);padding:clamp(22px,2.8vw,34px) 0}
 .sv-i.rev{grid-template-columns:5fr 7fr}.sv-i.rev .sv-f{order:-1}
 .sv-f{margin:0}.sv-f img{width:100%;aspect-ratio:4/3;object-fit:cover}
-#acompanhamento{align-items:start}
-.sv-t h3{font-size:clamp(24px,2.5vw,30px);font-weight:400;margin-bottom:12px}
-.sv-t h3 .sn{display:inline-block;font-size:14px;font-weight:500;color:var(--cet);letter-spacing:.04em;margin-right:10px;vertical-align:middle}
+.sv-3{grid-template-columns:5fr 7fr;grid-template-areas:"hd hd" "f t";align-items:start;row-gap:22px}
+.sv-3 .sv-hd{grid-area:hd}.sv-3 .sv-f{grid-area:f;order:0}.sv-3 .sv-t{grid-area:t}
+.sv-3 .sv-hd h3{margin-bottom:8px}.sv-3 .sv-hd p{margin:0;color:var(--tx)}
+.sv-3 .sv-t h4:first-child{margin-top:0}
+.sv-t h3,.sv-hd h3{font-size:clamp(24px,2.5vw,30px);font-weight:400;margin-bottom:12px}
+.sv-t h3 .sn,.sv-hd h3 .sn{display:inline-block;font-size:14px;font-weight:500;color:var(--cet);letter-spacing:.04em;margin-right:10px;vertical-align:middle}
 .sv-t h4{font-size:17px;font-weight:600;letter-spacing:-.01em;margin:18px 0 4px}
 .sv-t p{color:var(--tx);max-width:600px}
 .sv-t .gan{color:var(--gr);margin:0}.sv-t .gan b{font-weight:600}
@@ -180,7 +183,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 /* rodapé */
 .ft{background:var(--gg);color:var(--tx);padding:clamp(40px,4.5vw,64px) 0 24px;font-size:14px;line-height:1.7}
 .ft-g{display:grid;grid-template-columns:minmax(260px,1.25fr) minmax(190px,.9fr) minmax(190px,.9fr);gap:clamp(32px,4.5vw,72px);align-items:start}
-.ft .logo{display:block;width:clamp(250px,21vw,290px);margin:28px 0 0}
+.ft .logo{display:block;width:clamp(150px,12vw,176px);margin:30px 0 0}
 .ft-g p{margin:0 0 6px;max-width:340px}
 .ft-id p:first-child{margin-top:6px;max-width:320px}
 .ft-g b{font-weight:600;color:var(--gr)}
@@ -217,6 +220,7 @@ p{margin:0 0 16px;text-wrap:pretty}
  .d-n{font-size:34px}.d-s{font-size:26px}
  .hero .w,.pq-g,.sv-i,.sv-i.rev,.ct-g,.ag-w{grid-template-columns:1fr}
  .sv-i.rev .sv-f{order:0}
+ .sv-3{grid-template-columns:1fr;grid-template-areas:"hd" "t" "f"}
  .h-st{right:-8px;bottom:-10px;width:20px}
  .hero .w{gap:36px}
  .hero{display:block;min-height:0;padding:calc(var(--hd) + 28px) 0 var(--sp)}.h-f img{max-height:none}
@@ -300,9 +304,10 @@ p{margin:0 0 16px;text-wrap:pretty}
 <p class="gan"><b>O que sua empresa ganha:</b> maior clareza nas responsabilidades, qualidade nas decisões e capacidade de&nbsp;execução.</p>
 </div><figure class="sv-f"><img src="img/governanca.jpg" alt="Reunião de sócios e conselheiros em torno de uma mesa" width="1600" height="893" loading="lazy"></figure></article>
 
-<article class="sv-i rev" id="acompanhamento"><div class="sv-t">
+<article class="sv-i rev sv-3" id="acompanhamento"><div class="sv-hd">
 <h3><span class="sn">03</span>Acompanhamento Estratégico</h3>
 <p>Atuação ao lado do empresário em duas modalidades:</p>
+</div><div class="sv-t">
 <h4>Acompanhamento de projetos</h4>
 <p>Acompanhamento estratégico da implementação de iniciativas decorrentes dos trabalhos realizados pela Prosperista, contribuindo para o monitoramento de resultados, a identificação de riscos e a revisão de prioridades, sem assumir a execução das&nbsp;atividades.</p>
 <h4>Suporte estratégico continuado</h4>
@@ -368,7 +373,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 
 <footer class="ft"><div class="w">
 <div class="ft-g">
-<div class="ft-id"><p>Consultoria de estratégia e gestão. Copiloto estratégico de pequenas e médias&nbsp;empresas.</p><span class="logo">{{LOGO_C}}</span></div>
+<div class="ft-id"><p>Consultoria de estratégia e gestão. Copiloto estratégico de pequenas e médias&nbsp;empresas.</p><span class="logo">{{LOGO_V}}</span></div>
 <div><p class="ft-h">Serviços</p><ul class="ft-ul"><li><a href="#diagnostico">Diagnóstico Prosperista</a></li><li><a href="#estrutura-decisoria">Estrutura Decisória</a></li><li><a href="#acompanhamento">Acompanhamento Estratégico</a></li><li><a href="#palestra">Palestra Estratégica</a></li></ul></div>
 <div><p class="ft-h">Contato</p><ul class="ft-ul"><li><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li><li><a href="{{MAILTO_AGENDAR}}">Agendar conversa</a></li><li><a class="ico" href="{{LINKEDIN_EMPRESA}}">{{ICO:linkedin:grafite}}LinkedIn institucional</a></li></ul></div>
 </div>
