@@ -115,13 +115,16 @@ p{margin:0 0 16px;text-wrap:pretty}
 .sv-i{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,72px);align-items:center;border-top:0;padding:clamp(22px,2.8vw,34px) 0}
 .sv-i.rev{grid-template-columns:5fr 7fr}.sv-i.rev .sv-f{order:-1}
 .sv-f{margin:0}.sv-f img{width:100%;aspect-ratio:4/3;object-fit:cover}
-#acompanhamento{align-items:start}
+#acompanhamento{align-items:stretch}
+#acompanhamento .sv-f{position:relative;min-height:326px}
+#acompanhamento .sv-f img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 30%}
 .sv-t h3,.sv-hd h3{font-size:clamp(24px,2.5vw,30px);font-weight:400;margin-bottom:12px}
 .sv-t h3 .sn,.sv-hd h3 .sn{display:inline-block;font-size:14px;font-weight:500;color:var(--cet);letter-spacing:.04em;margin-right:10px;vertical-align:middle}
 .sv-t h4{font-size:17px;font-weight:600;letter-spacing:-.01em;margin:18px 0 4px}
 .sv-t p{color:var(--tx);max-width:600px}
 .sv-t .gan{color:var(--gr);margin:0}.sv-t .gan b{font-weight:600}
-.sv-cta{text-align:center;padding-top:clamp(20px,3vw,36px);border-top:1px solid var(--rule)}
+.sv-cta{display:flex;align-items:center;justify-content:center;gap:clamp(18px,3vw,40px);padding-top:clamp(12px,2vw,24px)}
+.sv-cta::before,.sv-cta::after{content:"";flex:1;height:1px;background:var(--ce);opacity:.55}
 /* palestra estratégica: faixa escura, estampa à direita, botão dourado */
 .pal{background:var(--gr);color:var(--ow);padding:clamp(40px,5vw,64px) 0;position:relative;overflow:hidden}
 .pal .w{position:relative;z-index:1}
@@ -219,6 +222,7 @@ p{margin:0 0 16px;text-wrap:pretty}
  .d-n{font-size:34px}.d-s{font-size:26px}
  .hero .w,.pq-g,.sv-i,.sv-i.rev,.ct-g,.ag-w{grid-template-columns:1fr}
  .sv-i.rev .sv-f{order:0}
+ #acompanhamento .sv-f{min-height:0;aspect-ratio:4/3}
  .h-st{right:-8px;bottom:-10px;width:20px}
  .hero .w{gap:36px}
  .hero{display:block;min-height:0;padding:calc(var(--hd) + 28px) 0 var(--sp)}.h-f img{max-height:none}
