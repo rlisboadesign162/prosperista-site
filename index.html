@@ -80,7 +80,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 .pn .btn{align-self:flex-start}
 @media(max-width:1100px){.nav{display:none}.mb{display:inline-flex}}
 /* início */
-.hero{padding:calc(var(--hd) + 24px) 0 24px;display:flex;align-items:center;min-height:calc(100vh - var(--bnd));min-height:calc(100svh - var(--bnd))}
+.hero{overflow:hidden;padding:calc(var(--hd) + 24px) 0 24px;display:flex;align-items:center;min-height:calc(100vh - var(--bnd));min-height:calc(100svh - var(--bnd))}
 .hero .w{width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
 .hero h1 span{display:block;color:var(--cel)}
 @media(min-width:1600px){.hero h1{font-size:52px}.hero .lead{max-width:580px}}
@@ -88,7 +88,9 @@ p{margin:0 0 16px;text-wrap:pretty}
 .bt{display:flex;flex-wrap:wrap;gap:12px}
 .h-f{position:relative;margin:0}
 .h-f img{width:100%;aspect-ratio:4/3;object-fit:cover;max-height:calc(100vh - var(--hd) - var(--bnd) - 96px);max-height:calc(100svh - var(--hd) - var(--bnd) - 96px)}
-.h-st{position:absolute;right:-15px;bottom:-15px;width:29px}
+.h-bg{position:absolute;z-index:0;right:70%;top:50%;height:122%;aspect-ratio:24.882/53.058;transform:translateY(-54%);pointer-events:none}
+.h-bg svg{display:block;width:100%;height:100%}
+.h-f img{position:relative;z-index:1}
 .h-st svg,.dm svg{display:block;width:100%;height:auto}
 /* duas metades, uma direção: faixa estática */
 .dm{background:var(--gg);height:var(--bnd);display:flex;align-items:center;justify-content:center;gap:14px;padding:0 var(--g);font-size:var(--t21);font-weight:500;letter-spacing:-.01em;text-align:center}
@@ -109,8 +111,9 @@ p{margin:0 0 16px;text-wrap:pretty}
 /* nossos serviços */
 .sv{padding:calc(var(--gp) / 2) 0 var(--sp)}
 .sv h2{max-width:760px;margin-bottom:14px}
+.sv-top{display:flex;align-items:center;gap:clamp(20px,3vw,40px);margin-bottom:16px}.sv-top .k{margin:0;white-space:nowrap}.sv-top i{flex:1;height:1px;background:var(--rule)}
 .sv-in{max-width:700px;color:var(--tx);margin-bottom:clamp(8px,2vw,24px)}
-.sv-i{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,72px);align-items:center;border-top:1px solid var(--rule);padding:clamp(22px,2.8vw,34px) 0}
+.sv-i{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,72px);align-items:center;border-top:0;padding:clamp(22px,2.8vw,34px) 0}
 .sv-i.rev{grid-template-columns:5fr 7fr}.sv-i.rev .sv-f{order:-1}
 .sv-f{margin:0}.sv-f img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .sv-3{grid-template-columns:5fr 7fr;grid-template-areas:"hd hd" "f t";align-items:start;row-gap:22px}
@@ -221,7 +224,7 @@ p{margin:0 0 16px;text-wrap:pretty}
  .hero .w,.pq-g,.sv-i,.sv-i.rev,.ct-g,.ag-w{grid-template-columns:1fr}
  .sv-i.rev .sv-f{order:0}
  .sv-3{grid-template-columns:1fr;grid-template-areas:"hd" "t" "f"}
- .h-st{right:-8px;bottom:-10px;width:20px}
+ .h-bg{display:none}
  .hero .w{gap:36px}
  .hero{display:block;min-height:0;padding:calc(var(--hd) + 28px) 0 var(--sp)}.h-f img{max-height:none}
  .bt .btn{flex:1 1 auto}
@@ -270,7 +273,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 <p class="lead">A Prosperista atua como copiloto estratégico de pequenas e médias empresas. Com governança prática e sustentabilidade aplicada, trabalhamos ao lado do empresário para ampliar sua visão do negócio, organizar prioridades, antecipar riscos e transformar estratégia em&nbsp;execução.</p>
 <div class="bt"><a class="btn" href="mailto:contato@prosperista.com?subject=Agendar%20conversa&body=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20conversa%20inicial%20com%20a%20Prosperista.%0A%0ADia%20e%20hor%C3%A1rio%20de%20prefer%C3%AAncia%3A%0A">Agendar conversa</a><a class="btn lt" href="#servicos">Conhecer os serviços</a></div>
 </div>
-<figure class="h-f"><img src="img/hero.jpg" alt="Consultora e empresário revisando juntos um caderno de anotações" width="1800" height="1005" fetchpriority="high"><span class="h-st" aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" aria-hidden="true"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></span></figure>
+<figure class="h-f"><span class="h-bg" aria-hidden="true"><svg viewBox="25.118 23.471 24.882 53.058" preserveAspectRatio="none"><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#DCD7CF"/></svg></span><img src="img/hero.jpg" alt="Consultora e empresário revisando juntos um caderno de anotações" width="1800" height="1005" fetchpriority="high"></figure>
 </div></section>
 
 <div class="dm"><span aria-hidden="true"><svg viewBox="25.118 23.471 49.764 53.058" aria-hidden="true"><path d="M48 23.471H52A54.312 54.312 0 0 0 74.882 48V52A54.312 54.312 0 0 0 52 76.529H48A54.312 54.312 0 0 0 25.118 52V48A54.312 54.312 0 0 0 48 23.471Z" fill="#A88C5C"/><path d="M50 23.471H48A54.312 54.312 0 0 1 25.118 48V52A54.312 54.312 0 0 1 48 76.529H50Z" fill="#C2A675"/></svg></span>Duas metades, uma direção.</div>
@@ -288,7 +291,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 </div></section>
 
 <section class="sv" id="servicos"><div class="w">
-<p class="k">Nossos Serviços</p>
+<div class="sv-top"><p class="k">Nossos Serviços</p><i aria-hidden="true"></i></div>
 <h2>Diferentes desafios, diferentes formas de&nbsp;atuação.</h2>
 <p class="sv-in">Cada empresa tem sua própria história, seus desafios e suas ambições. A Prosperista combina o entendimento dessa realidade com uma perspectiva externa e&nbsp;independente.</p>
 
