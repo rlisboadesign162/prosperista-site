@@ -174,11 +174,16 @@ p{margin:0 0 16px;text-wrap:pretty}
 .ag-em{margin:0;padding-top:22px;border-top:1px solid var(--ce);max-width:540px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px}
 .ag-em span{font-size:var(--t13);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#6E5A33}
 .ag-em .lk{font-size:20px}
-.ag-c{background:var(--gg);padding:clamp(24px,3vw,40px)}
-.ag-c ul{list-style:none;margin:0 0 26px;padding:0}
-.ag-c li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed rgba(35,35,34,.3)}
-.ag-c li:first-child{border-top:1px dashed rgba(35,35,34,.3)}
-.ag-c li em{font-style:normal;font-size:var(--t13);letter-spacing:.2em;text-transform:uppercase;color:#6E5A33;font-weight:600}
+.ag-c{background:none;padding:0}
+.ac{display:grid;gap:8px;margin:0 0 14px}
+.ac-i{display:flex;align-items:center;gap:20px;padding:20px 24px}
+.ac-i .mi svg{width:44px;height:44px;display:block}
+.ac-r{display:block;font-size:var(--t13);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
+.ac-v{display:block;font-size:clamp(26px,2.8vw,36px);font-weight:300;letter-spacing:-.02em;line-height:1.05}
+.ac-v small{font-size:15px;font-weight:400;letter-spacing:0;margin-left:4px;opacity:.85}
+.ac-i.t0{background:var(--ow);color:var(--gr);box-shadow:inset 0 0 0 1px var(--gg)}.ac-i.t0 .ac-r{color:#6E5A33}
+.ac-i.t1{background:var(--tp);color:var(--ow)}.ac-i.t1 .ac-r{color:#F0E4C8}
+.ac-i.t2{background:var(--ch);color:var(--gr)}.ac-i.t2 .ac-r{color:var(--gr)}
 .ag-c .btn{width:100%}
 .ag-c .em{margin:18px 0 0;text-align:center}
 .fx{height:56px;background:#C2A675 url("{{PADRAO_TILE}}") 0 -6px/340px auto repeat}
@@ -364,7 +369,11 @@ p{margin:0 0 16px;text-wrap:pretty}
 <p class="ag-p">Uma conversa inicial, sem compromisso, para conhecer o momento da sua empresa, compreender seus desafios e avaliar como a Prosperista pode contribuir. Informe em que dia e hora você gostaria de&nbsp;agendar.</p>
 <p class="ag-em"><a class="lk" href="mailto:{{EMAIL}}">{{EMAIL}}</a></p></div>
 <div class="ag-c">
-<ul><li><em>Duração</em><b>30 minutos</b></li><li><em>Formato</em><b>Online</b></li><li><em>Confirmação</em><b>Por e-mail</b></li></ul>
+<div class="ac">
+<div class="ac-i t0"><span class="mi">{{ICO:relogio:grafite}}</span><div><span class="ac-r">Duração</span><span class="ac-v">30 <small>minutos</small></span></div></div>
+<div class="ac-i t1"><span class="mi">{{ICO:site:off-white}}</span><div><span class="ac-r">Formato</span><span class="ac-v">Online</span></div></div>
+<div class="ac-i t2"><span class="mi">{{ICO:email:grafite}}</span><div><span class="ac-r">Confirmação</span><span class="ac-v">Por e-mail</span></div></div>
+</div>
 <a class="btn" href="{{MAILTO_AGENDAR}}">Vamos conversar</a>
 </div>
 </div></section>
